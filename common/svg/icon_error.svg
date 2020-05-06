@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 22 22">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="22" height="22" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="icon_form" clip-path="url(#clip-path)">
+    <rect id="長方形_9528" data-name="長方形 9528" width="22" height="22" rx="11" fill="#d10000"/>
+    <path id="合体_659" data-name="合体 659" d="M-853.775,17783.451l-3.276-3.275-3.276,3.275a.51.51,0,0,1-.71,0l-.611-.611a.5.5,0,0,1,0-.709l3.277-3.275-3.183-3.184a.5.5,0,0,1,0-.705l.616-.611a.494.494,0,0,1,.705,0l3.182,3.18,3.182-3.18a.494.494,0,0,1,.705,0l.616.611a.5.5,0,0,1,0,.705l-3.183,3.184,3.277,3.275a.5.5,0,0,1,0,.709l-.611.611a.5.5,0,0,1-.355.146A.5.5,0,0,1-853.775,17783.451Z" transform="translate(868.051 -17767.949)" fill="#fff"/>
+  </g>
+</svg>

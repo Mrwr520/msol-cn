@@ -1,0 +1,443 @@
+@charset "utf-8";
+
+
+.eir_area_governance .p-news-2__item {
+    text-align: right;
+}
+.ir_gov_img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+}
+
+.s_eirBlock{
+    /* margin-top:30px;
+    display:block; */
+}
+.s_eirBlock:last-child{
+    /* padding-bottom:30px; */
+}
+.s_eirBlock:first-child{
+    /* margin-top:50px;
+    padding-bottom:0; */
+}
+ 
+
+/* List */
+/*.s_eirList_item{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+	padding-right:20px;
+    margin-top:20px;
+    padding-top:20px;
+    border-top: 1px solid #CCC;
+}*/
+
+.s_eirList_item{
+	display: -webkit-block;
+    display: -moz-block;
+    display: -ms-block;
+    display: -o-block;
+    display: block;
+	position:relative;
+	}
+	
+
+
+.s_eirList_item:first-child{
+/*    margin-top:0;
+    border:0;*/
+}
+
+.ir-content__article h3{
+	margin-left:0;
+	}
+
+.s_eirList_item_head{
+    white-space:nowrap;    
+}
+.s_eirList_item_body{
+    margin-left:5px; 
+	padding-right:20px;
+}
+.eirItem_child{
+    border-top:0;
+    margin-top:0;
+}
+.eirItem_child .eirItem_head{
+    visibility:hidden;
+}
+
+
+.s_eirList_item_category{
+	display:inline-block;
+	width:100px;
+/*	background-color:#333;*/
+	vertical-align:top;
+	margin-left:5px;
+	padding:3px 0;
+	text-align:center;
+	color:#FFF;
+	font: 0.6rem 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', arial, helvetica, clean, sans-serif;
+}
+
+.eir_area_irnews .ir-content__tag {
+    width: 92px;
+    padding: 3px 0;
+    margin-left: 15px;
+    font-size: 12px;
+    text-align: center;
+    background: #015086;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.eirDataArea {
+	/* margin-bottom:50px; */
+	}
+
+/* .cat-news-tanshin{
+    background-color:#333;
+}
+.cat-news-yuho{
+    background-color:#333;
+}
+.cat-news-press{
+    background-color:#333;
+}
+.cat-news-pr{
+    background-color:#333;
+}
+.cat-news-announcement{
+    background-color:#333;
+}
+.cat-news-ir_material{
+    background-color:#333;
+}
+.cat-news-ir_material_for_fiscal_ym{
+    background-color:#333;
+}
+.cat-news-cgr_ds,
+.cat-news-cgr_do{
+    background-color:#333;
+}
+.cat-news-gms{
+    background-color:#333;
+} */
+
+.s_eirList_item_thumbnail{
+	width:●px;
+	height:auto;
+	margin:0;
+	border:1px solid #ccc;
+}
+
+.s_eirList_item_title{
+    display:inline;
+}
+.s_eirList_item_type{
+    display:inline-block;
+}
+.s_eirList_item_type_icon{
+    display: none;
+    vertical-align: middle;
+    padding: 0px 10px;
+    margin-left:5px;
+    line-height: 15px;
+    color:#FFF;
+    font: 0.6rem 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', arial, helvetica, clean, sans-serif;
+}
+
+
+.s_eirList_item_type_figure{
+    display:inline-block;
+    margin-left:5px;
+}
+.s_eirList_item_type_figure_image{
+    width:15px;
+    vertical-align:middle;
+}
+.s_eirList_item_type_figure_image-url,
+.s_eirList_item_type_figure_image-doc,
+.s_eirList_item_type_figure_image-docx,
+.s_eirList_item_type_figure_image-xls,
+.s_eirList_item_type_figure_image-xlsx,
+.s_eirList_item_type_figure_image-ppt,
+.s_eirList_item_type_figure_image-pptx,
+.s_eirList_item_type_figure_image-zip,
+.s_eirList_item_type_figure_image-space{
+    display:none;
+}
+
+.s_eirList_item_new{
+    display: inline-block;
+    background-color:#F90;
+    vertical-align: middle;
+    padding: 0px 10px;
+    line-height: 15px;
+    color:#FFF;
+    font: 0.6rem 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', arial, helvetica, clean, sans-serif;
+}
+.s_eirList_item_comment{
+    font-size:0.8rem;
+}
+
+/* Year Controller */
+.s_eirSelect{
+    margin-top:20px;
+}
+.s_eirAnchor{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap:wrap;
+}
+.s_eirAnchor li{
+    margin-left:20px;
+}
+.s_eirAnchor li:first-child{
+    margin-left:0;
+}
+.s_eirAnchor a:before {
+    display:inline-block;
+    content: "";
+    border: 5px solid transparent;
+    border-top: 5px solid #333;
+    margin-right:5px;
+}
+
+
+/* Newstype Controller */
+.s_eirTab{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap:wrap;
+}
+.s_eirTab li{
+	margin-left:10px;
+}
+.s_eirTab li:first-child{
+	margin-left:0;
+}
+.s_eirTab li a{
+	display:block;
+	width:142px;
+	padding:15px;
+	font-size:14px;
+	background-color:#f1f7fd;
+	border:2px solid #f1f7fd;
+	color:#333;
+	text-align:center;
+	text-decoration:none;
+	outline: none;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+.s_eirTab li.active a,
+.s_eirTab li a:hover{
+	color:#FFF;
+	background-color:#015086;
+	border:2px solid #015086;
+}
+
+/* Governance */
+.eir_area_governance .s_eirList_item{
+    display: block;
+    text-align:right;
+}
+
+.eir_area_governance .noDataText{
+    display:none;
+}
+
+/* IR Calendar */
+.eirCalendar_figure{
+    text-align:center;
+}
+.eirCalendar_figure-pc{
+    display:block;
+}
+.eirCalendar_figure-sp{
+    display:none;
+}
+.eirCalendar_image{
+    max-width:100%;
+}
+.eirCalendarNote{
+    margin-top:30px;
+}
+
+
+.eir_area_schedule .s_eirList_item{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+	position:relative;
+}
+.eir_area_schedule .s_eirList_item_head{
+	width:100px
+}
+	
+
+
+/* share */
+.eir_MoreBtn_link{
+    display:block;
+	background-color:#FFF;
+	padding:15px;
+	border:1px solid #333;
+	color:#333;
+	text-align:center;
+	text-decoration:none;
+	outline: none;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;	
+}
+.eir_MoreBtn_link:hover{
+	color:#FFF;
+	background-color:#333;
+	text-decoration:none;
+}
+.eir_rss{
+    text-align:right;
+}
+.eir_rss_image{
+    width:16px;
+}
+.eir_yuhoCsv_item{
+    margin-top:20px; 
+}
+.eir_yuhoCsv_item:first-child{
+    margin-top:0; 
+}
+.eir_yuhoCsv_item_link{
+    display:block;
+	background-color:#FFF;
+	padding:15px;
+	border:1px solid #333;
+	color:#333;
+	text-align:center;
+	text-decoration:none;
+	outline: none;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;	
+}
+.eir_yuhoCsv_item_link:hover{
+	color:#FFF;
+	background-color:#333;
+	text-decoration:none;
+}
+.eir_pdfNote{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+.eir_pdfNote_item{
+    margin-left:10px; 
+	font-size:90%;
+}
+.eir_pnexNote{
+	font-size:90%;
+	}
+.eir_pdfNote_item:first-child{
+    margin-left:0; 
+}
+.eir_pnexNote_item-right{
+    text-align:right;
+}
+
+.s_eirList_item_type_icon-pdf::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 18px;
+    height: 21px;
+    margin-top: 3px;
+    background-image: url(../img/filetype_icon/icon_pdf.png);
+}
+
+
+
+@media screen and (max-width: 768px){
+    .s_eirList_item{
+        flex-direction: column;
+    }
+    .s_eirList_item_body{
+        margin-top:10px;
+        margin-left:0;
+    }
+
+    .s_eirTab{
+        width:100%;
+        justify-content: space-between;
+    }
+    .s_eirTab li{
+        width:49%;
+        margin-left:0;
+        margin-top:2%;
+    }
+    .s_eirTab li a{
+        width:auto;
+    }
+
+    .s_eirAnchor{
+        width:100%;
+        justify-content: space-between;
+    }
+    .s_eirAnchor li{
+        width:25%;
+        margin-left:0;
+        margin-top:2%;
+    }
+    .s_eirAnchor li a{
+        width:auto;
+    }
+
+    .eirItem_child .eirItem_head{
+        display:none;
+    }
+    
+    .eir_pdfNote{
+        flex-direction: column;
+    }
+    .eir_pdfNote_item{
+        margin-left:0; 
+    }
+
+    .eirCalendar_figure-pc{
+        display:none;
+    }
+    .eirCalendar_figure-sp{
+        display:block;
+    }
+    
+	.eir_area_schedule .s_eirList_item_head{
+		width: auto;
+	}
+	
+	.eir_area_governance .s_eirList_item{
+    display: block;
+    text-align:center;
+}
+
+}
+
