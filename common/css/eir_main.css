@@ -82,7 +82,7 @@
 	padding:3px 0;
 	text-align:center;
 	color:#FFF;
-	font: 0.6rem 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', arial, helvetica, clean, sans-serif;
+	font: 0.6rem 'メイリオ,"微软雅黑"', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', arial, helvetica, clean, sans-serif;
 }
 
 .eir_area_irnews .ir-content__tag {
@@ -149,7 +149,7 @@
     margin-left:5px;
     line-height: 15px;
     color:#FFF;
-    font: 0.6rem 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', arial, helvetica, clean, sans-serif;
+    font: 0.6rem 'メイリオ,"微软雅黑"', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', arial, helvetica, clean, sans-serif;
 }
 
 
@@ -180,7 +180,7 @@
     padding: 0px 10px;
     line-height: 15px;
     color:#FFF;
-    font: 0.6rem 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', arial, helvetica, clean, sans-serif;
+    font: 0.6rem 'メイリオ,"微软雅黑"', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', arial, helvetica, clean, sans-serif;
 }
 .s_eirList_item_comment{
     font-size:0.8rem;
