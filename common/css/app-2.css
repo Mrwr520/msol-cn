@@ -10346,13 +10346,13 @@ a[target='_blank'] .p-news-2__title:after {
     margin: 0 auto;
     width: 100%;
     height: calc((100vw - 17px) * 0.5625);
-    max-height: 787px;
+    max-height: 725px;
     overflow: hidden;
 }
 
 @media only screen and (max-width: 47.9375em) {
     .p-video-wrap {
-        background-image: url("../../img/img_main_movie_sp.jpg");
+        background-image: url("../../img/img_main_movie_sp_05.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -10529,7 +10529,7 @@ a[target='_blank'] .p-news-2__title:after {
     top: 0px;
     left: 0;
     width: 100%;
-    height: calc((100vw - 17px) * 0.5625);
+    height: calc((100vw - 17px) * 0.5625)z;
 }
 
 .p-voice-panel {
