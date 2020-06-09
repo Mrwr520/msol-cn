@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /* ==========================================================================
 Foundation
 ========================================================================== */
@@ -10346,7 +10346,7 @@ a[target='_blank'] .p-news-2__title:after {
     margin: 0 auto;
     width: 100%;
     height: calc((100vw - 17px) * 0.5625);
-    max-height: 725px;
+    max-height: 735px;
     overflow: hidden;
 }
 
@@ -10371,10 +10371,10 @@ a[target='_blank'] .p-news-2__title:after {
     z-index: -2;
     position: absolute;
     top: -54px;
-    bottom: -54px;
+    bottom: -44px;
     left: 50%;
     width: 100%;
-    height: calc(100% + 54px + 54px);
+    height: calc(100% + 54px + 44px);
     -webkit-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
 }
@@ -10529,7 +10529,7 @@ a[target='_blank'] .p-news-2__title:after {
     top: 0px;
     left: 0;
     width: 100%;
-    height: calc((100vw - 17px) * 0.5625)z;
+    height: calc((100vw - 17px) * 0.5625);
 }
 
 .p-voice-panel {
