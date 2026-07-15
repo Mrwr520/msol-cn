@@ -94,9 +94,9 @@ export function Header() {
           />
         </button>
 
-        {/* PC 导航 */}
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-8">
-          <ul className="flex items-center gap-5 xl:gap-7">
+        {/* PC 导航：lg 下使用紧凑间距，确保 1024px 宽度可完整容纳语言入口 */}
+        <nav className="hidden items-center gap-3 lg:flex xl:gap-6">
+          <ul className="flex items-center gap-4 xl:gap-7">
             {NAV_ITEMS.map((item) => (
               <li key={item.to} className="group relative">
                 <Link
@@ -128,10 +128,66 @@ export function Header() {
           </ul>
           <Link
             to={CONTACT_LINK.to}
-            className="rounded bg-primary px-5 py-2 text-sm font-bold text-white transition-colors duration-200 hover:bg-primary-dark"
+            className="shrink-0 rounded bg-primary px-4 py-2 text-sm font-bold text-white transition-colors duration-150 hover:bg-primary-dark xl:px-5"
           >
             {CONTACT_LINK.label}
           </Link>
+
+          {/*
+            桌面语言切换：details 提供原生点击/键盘开合；hover 与 focus-within
+            同时显示选项，避免仅依赖鼠标。下拉使用高层级覆盖 Header 底部蓝线。
+          */}
+          <details className="group relative shrink-0">
+            <summary
+              className={`flex min-w-[68px] cursor-pointer list-none items-center justify-center gap-1 rounded border px-3 py-[7px] text-sm font-bold outline-none transition-[color,background-color,border-color] duration-100 [&::-webkit-details-marker]:hidden ${
+                scrolled
+                  ? 'border-white/30 bg-white/10 text-white hover:border-white/60 hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white/70'
+                  : 'border-primary-dark/20 bg-white/80 text-primary-dark hover:border-primary hover:bg-[#eef5ff] focus-visible:ring-2 focus-visible:ring-primary/40'
+              }`}
+              aria-label="选择网站语言，当前为中文"
+            >
+              中文
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 12 8"
+                className="h-2 w-3 transition-transform duration-150 group-open:rotate-180"
+              >
+                <path
+                  d="M1 1.25 6 6.25l5-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </summary>
+            <div className="invisible absolute right-0 top-[calc(100%+8px)] z-[100] w-[148px] translate-y-1 overflow-hidden rounded-md border border-line bg-white py-1 opacity-0 shadow-[0_12px_32px_rgba(0,38,89,0.2)] transition-[opacity,transform,visibility] duration-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-open:visible group-open:translate-y-0 group-open:opacity-100">
+              <span
+                aria-current="true"
+                className="flex items-center justify-between px-4 py-2.5 text-sm font-bold text-primary-dark"
+              >
+                中文
+                <span className="text-[10px] font-semibold text-primary">当前</span>
+              </span>
+              <a
+                href="https://www.msols.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="block border-t border-line/70 px-4 py-2.5 text-sm font-medium text-ink transition-colors duration-100 hover:bg-[#eef5ff] hover:text-primary-dark focus:bg-[#eef5ff] focus:text-primary-dark focus:outline-none"
+              >
+                日本語
+              </a>
+              <a
+                href="https://www.msols.com/en/"
+                target="_blank"
+                rel="noreferrer"
+                className="block border-t border-line/70 px-4 py-2.5 text-sm font-medium text-ink transition-colors duration-100 hover:bg-[#eef5ff] hover:text-primary-dark focus:bg-[#eef5ff] focus:text-primary-dark focus:outline-none"
+              >
+                English
+              </a>
+            </div>
+          </details>
         </nav>
       </div>
 
@@ -204,6 +260,40 @@ export function Header() {
             </Link>
           </li>
         </ul>
+
+        {/* SP 独立语言区：触屏直接呈现全部选项，无需 hover */}
+        <div className="mx-5 mb-6 mt-4 border-t border-primary-dark/15 pt-5">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-primary-dark/55">
+            Language
+          </p>
+          <div className="grid grid-cols-1 overflow-hidden rounded-md border border-line">
+            <span
+              aria-current="true"
+              className="flex items-center justify-between bg-[#eef5ff] px-4 py-3 text-sm font-bold text-primary-dark"
+            >
+              中文
+              <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-white">
+                当前
+              </span>
+            </span>
+            <a
+              href="https://www.msols.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="border-t border-line px-4 py-3 text-sm font-medium text-ink active:bg-[#eef5ff]"
+            >
+              日本語
+            </a>
+            <a
+              href="https://www.msols.com/en/"
+              target="_blank"
+              rel="noreferrer"
+              className="border-t border-line px-4 py-3 text-sm font-medium text-ink active:bg-[#eef5ff]"
+            >
+              English
+            </a>
+          </div>
+        </div>
       </nav>
     </header>
   );
