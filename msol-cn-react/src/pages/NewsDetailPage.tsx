@@ -60,6 +60,25 @@ export default function NewsDetailPage() {
                 ))}
               </div>
               <footer className="mt-14 border-t border-primary-dark/10 pt-8">
+                {news.sourceUrl && (
+                  <div className="mb-8 flex flex-col gap-2 text-xs leading-6 text-ink/50 sm:flex-row sm:items-center">
+                    <span className="font-bold text-ink/70">资料来源</span>
+                    {news.sourceUrl.startsWith('/') ? (
+                      <Link to={news.sourceUrl} className="text-primary hover:text-primary-dark">
+                        {news.sourceLabel ?? 'MSOL 官方资料'}
+                      </Link>
+                    ) : (
+                      <a
+                        href={news.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-primary hover:text-primary-dark"
+                      >
+                        {news.sourceLabel ?? '公开资料'} ↗
+                      </a>
+                    )}
+                  </div>
+                )}
                 <Link to="/news" className="group inline-flex items-center text-sm font-bold text-primary-dark">
                   <span className="mr-3 inline-block rotate-180"><Arrow /></span>
                   返回新闻列表
