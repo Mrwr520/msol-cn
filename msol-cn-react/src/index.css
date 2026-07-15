@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Web Fonts（从原站 common/font/SansCN 迁移而来）
+   ========================================================================== */
+@font-face {
+  font-family: 'webfontSourceHanSansSC';
+  font-style: normal;
+  font-weight: 100;
+  src: url('/fonts/SourceHanSansCN-ExtraLight.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'webfontSourceHanSansSC';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts/SourceHanSansCN-Light.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'webfontSourceHanSansSC';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/SourceHanSansCN-Normal.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'webfontSourceHanSansSC';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/SourceHanSansCN-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'webfontSourceHanSansSC';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/SourceHanSansCN-Medium.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'webfontSourceHanSansSC';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/SourceHanSansCN-Bold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'webfontSourceHanSansSC';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/fonts/SourceHanSansCN-Heavy.woff') format('woff');
+  font-display: swap;
+}
+
+html,
+body {
+  @apply font-sans text-ink;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 全局默认链接颜色/hover/visited 规则，特异性必须彻底清零（包括伪类部分），
+   否则会有两种方式压过组件里的 Tailwind 颜色类（如深色卡片内的 text-white）：
+   1) :hover / :visited 伪类本身算一份「类选择器」权重，跟单个 utility class
+      （同为 0,1,0）打平，打平后由「样式表中出现顺序」决出胜负——而这段代码写在
+      @tailwind utilities 之后，编译产物里排在所有工具类之后，会赢。
+   2) 因此这里把 :hover / :visited 也一起放进 :where()，让整条规则特异性为 0，
+      永远稳定地权重最低，不再依赖、也不会受源码顺序影响。 */
+:where(a) {
+  @apply text-ink transition-colors duration-100;
+}
+
+@media (min-width: 1024px) {
+  :where(a):where(:hover) {
+    @apply text-primary;
+  }
+}
+
+:where(a):where(:visited) {
+  color: inherit;
+}
+
+/* 原站 body.preload 首帧防抖：加载完成前隐藏滚动动画元素，避免闪烁 */
+.msol-reveal {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.msol-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) !important;
+}

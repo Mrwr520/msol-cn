@@ -1,0 +1,66 @@
+import { useEffect } from 'react';
+import { PageHero } from '../components/common/PageHero';
+import { InfoTable } from '../components/common/InfoTable';
+import { LinkCardList } from '../components/common/LinkCardList';
+import { ContactCta } from '../components/common/ContactCta';
+
+const HISTORY = [
+  { label: '2005年6月', value: '公司正式成立' },
+  { label: '2007年5月', value: '正式对外提供，"PMO"导入管理咨询服务' },
+  { label: '2008年5月', value: '以"PMO"管理咨询为主，进一步细分行业提升管理咨询服务范围' },
+  { label: '2010年7月', value: '《项目管理办公室(PMO)实践指南》日本版出版' },
+  { label: '2012年11月', value: '美国子公司（MSOL INC）正式成立' },
+  { label: '2013年5月', value: '在中部名古屋以汽车行业为主，中部分公司正式成立' },
+  { label: '2014年8月', value: '《项目管理办公室(PMO)实践指南》英文版出版' },
+  { label: '2014年11月', value: '管理咨询服务的扩大，总公司迁址六本木' },
+  { label: '2015年11月', value: '台湾子公司 元嵩管理顧問股份有限公司 正式成立' },
+  { label: '2016年10月', value: '《项目管理办公室(PMO)实践指南》中文（繁体字）版出版' },
+  { label: '2018年4月', value: '《项目管理办公室(PMO)实践指南》中文（简体字）版出版' },
+  { label: '2018年6月', value: 'MI SERIES《汽车行业mobility shift》日本版出版' },
+  { label: '2018年7月', value: '东京证券交易所 MOTHERS（创业板）上市' },
+  { label: '2018年11月', value: '中国子公司 麦嵩隆管理咨询(上海)有限公司 正式成立' },
+  { label: '2019年9月', value: '项目管理软件PROEVER（北极星）SaaS 正式上线' },
+  { label: '', value: '《PMO不败法则：100个完美收工技巧》中文（简体字）版出版' },
+  { label: '2019年10月', value: '东京证券交易所市场第一部上市' },
+  { label: '2019年11月', value: 'MI SERIES《赢得国际竞争的管理法》日文版出版' },
+  { label: '2020年6月', value: '远程办公时代的全新管理模式『PMO ONLINE』正式上线' },
+  { label: '2020年8月', value: '项目管理能力诊断『PROEVER管理评分（Management Score）』正式上线' },
+];
+
+export default function CompanyHistoryPage() {
+  useEffect(() => {
+    document.title = '发展历程 | 业务介绍 | Management Solutions （MSOL）';
+  }, []);
+
+  return (
+    <>
+      <PageHero
+        title="发展历程"
+        subtitle="为您介绍自2005年以来MSOL集团的发展历程。"
+        crumbs={[
+          { label: '首页', to: '/' },
+          { label: '公司信息', to: '/company' },
+          { label: '发展历程' },
+        ]}
+      />
+
+      <div className="mx-auto max-w-3xl px-6 py-14">
+        <InfoTable rows={HISTORY} />
+      </div>
+
+      <section className="border-t border-line py-14">
+        <div className="mx-auto max-w-5xl px-6">
+          <LinkCardList
+            items={[
+              { to: '/company/company-data', title: '公司概要', desc: 'MSOL集团的规模、成立时间、管理层、公司所在地等。' },
+              { to: '/company/history', title: '发展历程', desc: '为您介绍自2005年以来MSOL集团的发展历程。', current: true },
+              { to: '/company/director', title: '董事信息', desc: '为您介绍公司董事。' },
+            ]}
+          />
+        </div>
+      </section>
+
+      <ContactCta />
+    </>
+  );
+}
