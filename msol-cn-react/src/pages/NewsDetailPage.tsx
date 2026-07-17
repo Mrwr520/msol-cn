@@ -13,7 +13,7 @@ const NewsSoftwareAnnual2021Page = lazy(() => import('./NewsSoftwareAnnual2021Pa
 const NewsPmiRep2021Page = lazy(() => import('./NewsPmiRep2021Page'));
 
 /** 富内容新闻页映射：slug -> 专用组件 */
-const RICH_NEWS_PAGES: Record<string, React.LazyExoticComponent<() => JSX.Element>> = {
+const RICH_NEWS_PAGES: Record<string, React.LazyExoticComponent<React.ComponentType>> = {
   'software-conference-2024': NewsSoftwareConference2024Page,
   'pmi-conference-2023': NewsPmiConference2023Page,
   'pmi-salon-2023': NewsPmiSalon2023Page,
