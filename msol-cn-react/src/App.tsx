@@ -13,6 +13,8 @@ import CompanyDirectorPage from './pages/CompanyDirectorPage';
 import CompanyHistoryPage from './pages/CompanyHistoryPage';
 import NewsListPage from './pages/NewsListPage';
 import NewsDetailPage from './pages/NewsDetailPage';
+import BooksListPage from './pages/BooksListPage';
+import BookPmoGuidePage from './pages/BookPmoGuidePage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
 import MarketingPage from './pages/MarketingPage';
@@ -36,6 +38,8 @@ function App() {
         <Route path="/company/history" element={<CompanyHistoryPage />} />
         <Route path="/news" element={<NewsListPage />} />
         <Route path="/news/:slug" element={<NewsDetailPage />} />
+        <Route path="/books" element={<BooksListPage />} />
+        <Route path="/books/pmo-guide" element={<BookPmoGuidePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/marketing" element={<MarketingPage />} />

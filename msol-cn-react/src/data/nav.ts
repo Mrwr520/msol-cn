@@ -33,6 +33,7 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: '新闻', to: '/news' },
+  { label: '图书推荐', to: '/books' },
 ];
 
 export const CONTACT_LINK = { label: '联系我们', to: '/contact' };

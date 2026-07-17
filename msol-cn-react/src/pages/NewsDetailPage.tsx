@@ -1,13 +1,40 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { Reveal } from '../components/common/Reveal';
 import { Arrow } from '../components/common/Arrow';
 import { ContactCta } from '../components/common/ContactCta';
 import { NEWS_LIST } from '../data/news';
 
+const NewsSoftwareConference2024Page = lazy(() => import('./NewsSoftwareConference2024Page'));
+const NewsPmiConference2023Page = lazy(() => import('./NewsPmiConference2023Page'));
+const NewsPmiSalon2023Page = lazy(() => import('./NewsPmiSalon2023Page'));
+const NewsPmiRep2023Page = lazy(() => import('./NewsPmiRep2023Page'));
+const NewsSoftwareAnnual2021Page = lazy(() => import('./NewsSoftwareAnnual2021Page'));
+const NewsPmiRep2021Page = lazy(() => import('./NewsPmiRep2021Page'));
+
+/** 富内容新闻页映射：slug -> 专用组件 */
+const RICH_NEWS_PAGES: Record<string, React.LazyExoticComponent<() => JSX.Element>> = {
+  'software-conference-2024': NewsSoftwareConference2024Page,
+  'pmi-conference-2023': NewsPmiConference2023Page,
+  'pmi-salon-2023': NewsPmiSalon2023Page,
+  'pmi-rep-2023': NewsPmiRep2023Page,
+  'software-annual-2021': NewsSoftwareAnnual2021Page,
+  'pmi-rep-2021': NewsPmiRep2021Page,
+};
+
 export default function NewsDetailPage() {
   const { slug } = useParams();
   const news = NEWS_LIST.find((item) => item.slug === slug);
+
+  // 如果有专用富内容页，直接渲染
+  const RichPage = slug ? RICH_NEWS_PAGES[slug] : undefined;
+  if (RichPage) {
+    return (
+      <Suspense fallback={<div className="flex min-h-[60vh] items-center justify-center"><span className="text-ink/40">加载中...</span></div>}>
+        <RichPage />
+      </Suspense>
+    );
+  }
 
   useEffect(() => {
     if (news) {
