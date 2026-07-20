@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { assetUrl } from '../../utils/asset';
 
 const FOOTER_LINKS = [
   { label: '首页', to: '/' },
@@ -26,7 +27,7 @@ export function Footer() {
 
         <div className="flex flex-col items-center gap-3 text-center text-xs text-ink/80 lg:items-end lg:text-right">
           <Link to="/">
-            <img src="/icons/logo.svg" alt="MSOL徽标" className="h-7" />
+            <img src={assetUrl('/icons/logo.svg')} alt="MSOL徽标" className="h-7" />
           </Link>
           <ul className="space-y-1">
             <li>麦嵩隆管理咨询(上海)有限公司</li>
@@ -40,7 +41,7 @@ export function Footer() {
               </Link>
             </li>
           </ul>
-          <img src="/img/logo_pmi.png" alt="项目管理协会徽标" className="h-10" />
+          <img src={assetUrl('/img/logo_pmi.png')} alt="项目管理协会徽标" className="h-10" />
           <p>&copy; Management Solutions co., ltd. / 麦嵩隆管理咨询(上海)有限公司</p>
         </div>
       </div>
@@ -52,7 +53,7 @@ export function Footer() {
           rel="noreferrer"
           className="flex items-center gap-2"
         >
-          <img src="/img/beian.png" alt="" className="h-5" />
+          <img src={assetUrl('/img/beian.png')} alt="" className="h-5" />
           <span>沪公网安备 31010602005510号 沪ICP备20004330</span>
         </a>
       </div>

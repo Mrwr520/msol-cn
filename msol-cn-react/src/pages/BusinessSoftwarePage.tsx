@@ -4,6 +4,7 @@ import { ContentSection } from '../components/common/ContentSection';
 import { Reveal } from '../components/common/Reveal';
 import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 const SOLUTIONS = [
   {
@@ -48,16 +49,16 @@ export default function BusinessSoftwarePage() {
               className="w-full rounded"
               controls
               preload="auto"
-              poster="/img/img_main_movie_sp_05.jpg"
+              poster={assetUrl('/img/img_main_movie_sp_05.jpg')}
             >
-              <source src="/video/movie-04.mp4" type="video/mp4" />
+              <source src={assetUrl('/video/movie-04.mp4')} type="video/mp4" />
             </video>
           </Reveal>
         </ContentSection>
 
         <ContentSection title="助推项⽬【0】失败。">
           <Reveal type="fade">
-            <img src="/img/software/img_proever_function.png" alt="" className="w-full rounded" />
+            <img src={assetUrl('/img/software/img_proever_function.png')} alt="" className="w-full rounded" />
           </Reveal>
           <p>
             ⻨嵩隆是⼀家专注于项⽬管理的咨询公司，多年来以⼤中型企业为中⼼，在项⽬管理⽅⾯积累了⼤量丰富经验与知识。
@@ -68,7 +69,7 @@ export default function BusinessSoftwarePage() {
           </p>
           <p>PROEVER还可以帮助您培养专业项⽬经理和PMO，从⽽提升企业项⽬管理的整体⽔平，引领项⽬成功。</p>
           <Reveal type="fade">
-            <img src="/img/software/img_proever_release.png" alt="" className="w-full rounded" />
+            <img src={assetUrl('/img/software/img_proever_release.png')} alt="" className="w-full rounded" />
           </Reveal>
         </ContentSection>
 
@@ -91,7 +92,7 @@ export default function BusinessSoftwarePage() {
           <Reveal type="fade" className="rounded border border-line p-6 text-center">
             <p className="font-bold text-ink">PROEVER 产品手册</p>
             <a
-              href="/pdf/20200527cn.pdf"
+              href={assetUrl('/pdf/20200527cn.pdf')}
               target="_blank"
               rel="noreferrer"
               className="mt-3 inline-block text-sm text-primary underline"
