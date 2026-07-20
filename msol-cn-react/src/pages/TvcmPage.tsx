@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { PageHero } from '../components/common/PageHero';
 import { VideoSection } from '../components/common/VideoSection';
+import { assetUrl } from '../utils/asset';
 
 export default function TvcmPage() {
   useEffect(() => {
@@ -18,18 +19,18 @@ export default function TvcmPage() {
       <div className="mx-auto max-w-3xl px-6 py-14">
         <VideoSection
           title="「PMO ってなんなんだ？」編（30秒）"
-          src="/video/movie-01.mp4"
-          poster="/img/img_main_movie_sp_01.jpg"
+          src={assetUrl('/video/movie-01.mp4')}
+          poster={assetUrl('/img/img_main_movie_sp_01.jpg')}
         />
         <VideoSection
           title="「PMO ってなんなんだ？」親子共演編（30秒）"
-          src="/video/movie-02.mp4"
-          poster="/img/img_main_movie_sp_02.jpg"
+          src={assetUrl('/video/movie-02.mp4')}
+          poster={assetUrl('/img/img_main_movie_sp_02.jpg')}
         />
         <VideoSection
           title="メイキング・インタビュー"
-          src="/video/movie-03.mp4"
-          poster="/img/img_main_movie_sp_03.jpg"
+          src={assetUrl('/video/movie-03.mp4')}
+          poster={assetUrl('/img/img_main_movie_sp_03.jpg')}
         />
       </div>
     </>

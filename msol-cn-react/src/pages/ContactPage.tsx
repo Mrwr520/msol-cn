@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { PageHero } from '../components/common/PageHero';
 import { Reveal } from '../components/common/Reveal';
+import { assetUrl } from '../utils/asset';
 
 export default function ContactPage() {
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-md px-6 py-14 text-center">
         <Reveal type="fade">
           <img
-            src="/img/contact/MSOL-CHINA-QR.jpg"
+            src={assetUrl('/img/contact/MSOL-CHINA-QR.jpg')}
             alt="微信公众账号"
             className="mx-auto h-48 w-48 rounded"
           />

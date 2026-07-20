@@ -5,6 +5,7 @@ import { Reveal } from '../components/common/Reveal';
 import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
 import { Link } from 'react-router-dom';
+import { assetUrl } from '../utils/asset';
 
 export default function FeatureMissionPage() {
   useEffect(() => {
@@ -27,7 +28,7 @@ export default function FeatureMissionPage() {
         <ContentSection title="咨询行业的第三波浪潮">
           <Reveal type="fade">
             <img
-              src="/img/feature/img_mission@2x.jpg"
+              src={assetUrl('/img/feature/img_mission@2x.jpg')}
               alt="该图解释了第三波"
               className="w-full rounded"
             />
