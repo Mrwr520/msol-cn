@@ -4,6 +4,7 @@ import { SectionHeading } from '../components/common/SectionHeading';
 import { Reveal } from '../components/common/Reveal';
 import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 const TROUBLES = [
   '虽然接受了咨询，但是不清楚自己该如何有效应用……',
@@ -70,7 +71,7 @@ export default function FeaturePage() {
       {/* 常见的烦恼 */}
       <section
         className="relative bg-primary-dark bg-cover bg-center py-14 text-white"
-        style={{ backgroundImage: "url('/img/feature/img_main_01@2x.jpg')" }}
+        style={{ backgroundImage: `url('${assetUrl('/img/feature/img_main_01@2x.jpg')}')` }}
       >
         <div className="bg-black/40 py-4">
           <div className="mx-auto max-w-3xl px-6 text-center">
@@ -126,7 +127,7 @@ export default function FeaturePage() {
       {/* 信赖度 */}
       <section
         className="relative bg-primary-dark bg-cover bg-center py-14 text-white"
-        style={{ backgroundImage: "url('/img/feature/img_main_02@2x.jpg')" }}
+        style={{ backgroundImage: `url('${assetUrl('/img/feature/img_main_02@2x.jpg')}')` }}
       >
         <div className="bg-black/40 py-4">
           <div className="mx-auto max-w-3xl px-6 text-center">

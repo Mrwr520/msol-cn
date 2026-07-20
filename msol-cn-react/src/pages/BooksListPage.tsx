@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Reveal } from '../components/common/Reveal';
 import { Arrow } from '../components/common/Arrow';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 export type BookItem = {
   slug: string;
@@ -76,7 +77,7 @@ export default function BooksListPage() {
                   {/* 封面 */}
                   <div className="relative aspect-[3/4] overflow-hidden bg-[#edf2f7]">
                     <img
-                      src={book.cover}
+                      src={assetUrl(book.cover)}
                       alt={book.title}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
