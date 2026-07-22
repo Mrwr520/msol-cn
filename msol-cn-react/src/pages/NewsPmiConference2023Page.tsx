@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
-const IMG_BASE = '/images/news/pmi-conference-2023';
+const IMG_BASE = assetUrl('/images/news/pmi-conference-2023');
 
 export default function NewsPmiConference2023Page() {
   useEffect(() => {

@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
-const IMG_BASE = '/images/news/software-annual-2021';
+const IMG_BASE = assetUrl('/images/news/software-annual-2021');
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (

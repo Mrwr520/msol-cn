@@ -5,6 +5,7 @@ import { Reveal } from '../components/common/Reveal';
 import { LinkCardList } from '../components/common/LinkCardList';
 import { Arrow } from '../components/common/Arrow';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 const COMPANY_LINKS = [
   {

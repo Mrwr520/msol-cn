@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NAV_ITEMS, CONTACT_LINK } from '../../data/nav';
+import { assetUrl } from '../../utils/asset';
 
 /** 对应原站 HeaderScroll 的触发阈值（scrollTop > 200 时收缩+变色） */
 const SCROLL_THRESHOLD = 200;
@@ -49,7 +50,7 @@ export function Header() {
       >
         <Link to="/" className="relative block h-8 overflow-hidden lg:h-9">
           <img
-            src="/icons/logo.svg"
+            src={assetUrl('/icons/logo.svg')}
             alt="MSOL徽标"
             className={`h-8 transform-gpu transition-[opacity,transform] duration-300 ease-msol lg:h-9 ${
               scrolled
@@ -58,7 +59,7 @@ export function Header() {
             }`}
           />
           <img
-            src="/icons/logo_white.svg"
+            src={assetUrl('/icons/logo_white.svg')}
             alt=""
             aria-hidden="true"
             className={`absolute inset-0 hidden h-8 transform-gpu transition-[opacity,transform] duration-300 ease-msol lg:block lg:h-9 ${

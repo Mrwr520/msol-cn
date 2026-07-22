@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Reveal } from '../components/common/Reveal';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
-const IMG_BASE = '/images/books';
+const IMG_BASE = assetUrl('/images/books');
 
 export default function BookPmoGuidePage() {
   useEffect(() => {

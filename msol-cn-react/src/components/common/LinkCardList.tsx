@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from './Reveal';
 import { Arrow } from './Arrow';
+import { assetUrl } from '../../utils/asset';
 
 export type LinkCardItem = {
   to: string;
@@ -32,7 +33,7 @@ export function LinkCardList({ items, columns = 3, variant = 'outline' }: LinkCa
           <>
             {item.img && (
               <div className="mb-4 overflow-hidden rounded">
-                <img src={item.img} alt="" className="h-32 w-full object-cover" />
+                <img src={assetUrl(item.img)} alt="" className="h-32 w-full object-cover" />
               </div>
             )}
             {item.icon && (
@@ -41,7 +42,7 @@ export function LinkCardList({ items, columns = 3, variant = 'outline' }: LinkCa
                   isSolid ? 'bg-white/15' : 'bg-primary/10'
                 }`}
               >
-                <img src={item.icon} alt="" className="h-7 w-7" />
+                <img src={assetUrl(item.icon)} alt="" className="h-7 w-7" />
               </span>
             )}
             <span

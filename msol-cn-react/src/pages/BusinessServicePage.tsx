@@ -4,6 +4,7 @@ import { ContentSection } from '../components/common/ContentSection';
 import { Reveal } from '../components/common/Reveal';
 import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 export default function BusinessServicePage() {
   useEffect(() => {
@@ -29,8 +30,8 @@ export default function BusinessServicePage() {
           </p>
           <p>结合过去的实战经验，我们能够根据贵司的实际情况制定不同的可实施的解决方案。</p>
           <Reveal type="fade" className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <img src="/img/service/img_pmo-pyramid_cn@2x.png" alt="该图说明了每个层的PMO执行支持" className="w-full rounded" />
-            <img src="/img/service/img_pmo-approach_cn@2x.png" alt="该图以解决特定问题的方式解释了PMO实施支持" className="w-full rounded" />
+            <img src={assetUrl('/img/service/img_pmo-pyramid_cn@2x.png')} alt="该图说明了每个层的PMO执行支持" className="w-full rounded" />
+            <img src={assetUrl('/img/service/img_pmo-approach_cn@2x.png')} alt="该图以解决特定问题的方式解释了PMO实施支持" className="w-full rounded" />
           </Reveal>
           <div className="rounded border border-line p-5">
             <h3 className="font-bold text-ink">项目管理支援示例</h3>
@@ -52,7 +53,7 @@ export default function BusinessServicePage() {
           </p>
           <Reveal type="fade">
             <img
-              src="/img/service/img_shared_cn.png"
+              src={assetUrl('/img/service/img_shared_cn.png')}
               alt="有关共享PMO服务的主要功能的图像"
               className="mx-auto w-full max-w-xl rounded"
             />
@@ -73,7 +74,7 @@ export default function BusinessServicePage() {
             Digital与专业合作伙伴携手，提出解决方案、构筑数字服务。作为DSIer(数字解决方案集成商)助力数字化变革的推进，提供数字化人才培养和成长的道场。
           </p>
           <Reveal type="fade">
-            <img src="/img/service/img_msol-digital_cn.png" alt="MSOL数码影像" className="w-full rounded" />
+            <img src={assetUrl('/img/service/img_msol-digital_cn.png')} alt="MSOL数码影像" className="w-full rounded" />
           </Reveal>
         </ContentSection>
 
@@ -87,13 +88,13 @@ export default function BusinessServicePage() {
           </p>
           <p>为了解决这个问题，MSOL着眼于新业务，新项目等「非常规业务」的「管理机制」，实施管理咨询。</p>
           <Reveal type="fade">
-            <img src="/img/service/img_management-consulting_01_cn.png" alt="管理咨询形象1" className="w-full rounded" />
+            <img src={assetUrl('/img/service/img_management-consulting_01_cn.png')} alt="管理咨询形象1" className="w-full rounded" />
           </Reveal>
           <p>
             MSOL的管理咨询服务，深入到企业整体的「管理机制」。包括管理层对于变革的价值判断和资源的优化及流程再造，项目正确执行与否的管理层早期判断流程，维持并提高公司内外成员挑战性和创造性的组织结构和制度等。我们的服务使用复合型管理框架，将用户的各方面现状可视化，渐进式推动实现用户目标。
           </p>
           <Reveal type="fade">
-            <img src="/img/service/img_management-consulting_02_cn.png" alt="管理咨询形象2" className="w-full rounded" />
+            <img src={assetUrl('/img/service/img_management-consulting_02_cn.png')} alt="管理咨询形象2" className="w-full rounded" />
           </Reveal>
           <div className="rounded border border-line p-5">
             <h3 className="font-bold text-ink">主要实施案例</h3>

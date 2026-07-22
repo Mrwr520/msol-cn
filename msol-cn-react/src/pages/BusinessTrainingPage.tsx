@@ -4,6 +4,7 @@ import { ContentSection } from '../components/common/ContentSection';
 import { Reveal } from '../components/common/Reveal';
 import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 export default function BusinessTrainingPage() {
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function BusinessTrainingPage() {
           </p>
           <Reveal type="fade">
             <img
-              src="/img/training/img_training-program_cn.jpg"
+              src={assetUrl('/img/training/img_training-program_cn.jpg')}
               alt="培训计划图片"
               className="mx-auto w-full max-w-2xl rounded"
             />
@@ -37,7 +38,7 @@ export default function BusinessTrainingPage() {
         </ContentSection>
 
         <Reveal type="fade" className="flex flex-col items-center gap-4 rounded border border-line p-6 md:flex-row md:items-start">
-          <img src="/img/logo_pmi.png" alt="项目管理协会徽标" className="h-14 w-auto shrink-0" />
+          <img src={assetUrl('/img/logo_pmi.png')} alt="项目管理协会徽标" className="h-14 w-auto shrink-0" />
           <p className="text-xs leading-relaxed text-ink/60">
             MBOK、PMP是项目管理协会(Project Management Institute,Inc)的注册商标。 PMI Registered Education
             Provider标志是项目管理协会(Project Management Institute,Inc.)的注册商标。MSOL经PMI批准，作为R.E.P提供培训课程并发行PDU。

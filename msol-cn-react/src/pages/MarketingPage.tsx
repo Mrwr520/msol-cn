@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { PageHero } from '../components/common/PageHero';
 import { VideoSection } from '../components/common/VideoSection';
+import { assetUrl } from '../utils/asset';
 
 export default function MarketingPage() {
   useEffect(() => {
@@ -18,13 +19,13 @@ export default function MarketingPage() {
       <div className="mx-auto max-w-3xl px-6 py-14">
         <VideoSection
           title="公司介绍"
-          src="/video/MSOL_Company_Profile_CN.mp4"
-          poster="/img/img_main_movie_sp_01.jpg"
+          src={assetUrl('/video/MSOL_Company_Profile_CN.mp4')}
+          poster={assetUrl('/img/img_main_movie_sp_01.jpg')}
         />
         <VideoSection
           title="PROEVER助推项目「０」失败"
-          src="/video/PROEVER_INTRO_CN.mp4"
-          poster="/img/img_main_movie_sp_02.jpg"
+          src={assetUrl('/video/PROEVER_INTRO_CN.mp4')}
+          poster={assetUrl('/img/img_main_movie_sp_02.jpg')}
         />
       </div>
     </>

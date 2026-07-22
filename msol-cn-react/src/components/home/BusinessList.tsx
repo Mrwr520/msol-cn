@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../common/Reveal';
 import { Arrow } from '../common/Arrow';
+import { assetUrl } from '../../utils/asset';
 
 const BUSINESS_ITEMS = [
   {
@@ -38,7 +39,7 @@ export function BusinessList() {
           >
             <span className="absolute inset-0 z-0 -translate-x-full bg-primary-mid transition-transform duration-400 ease-msol group-hover:translate-x-0" />
             <span className="relative z-10 mr-4 flex h-[45px] w-[45px] shrink-0 items-center justify-center md:mx-auto md:mb-6 md:h-[85px] md:w-auto">
-              <img src={item.icon} alt="" className="h-full w-auto" />
+              <img src={assetUrl(item.icon)} alt="" className="h-full w-auto" />
             </span>
             <span className="relative z-10">
               <span className="flex items-center text-base font-bold md:justify-center md:text-lg">

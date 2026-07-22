@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Reveal } from '../components/common/Reveal';
 import { Arrow } from '../components/common/Arrow';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 export type BookItem = {
   slug: string;

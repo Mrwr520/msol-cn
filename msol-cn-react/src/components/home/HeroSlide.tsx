@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../common/Reveal';
 import { Arrow } from '../common/Arrow';
+import { assetUrl } from '../../utils/asset';
 
 /** 还原原站第二个 p-grand-visual：大图背景 + 标题文案 + 「MSOL 的特色」入口 */
 export function HeroSlide() {
   return (
     <section className="relative overflow-hidden">
       <picture>
-        <source media="(min-width: 768px)" srcSet="/img/img_main_01@2x.jpg" />
+        <source media="(min-width: 768px)" srcSet={assetUrl('/img/img_main_01@2x.jpg')} />
         <img
-          src="/img/img_main_01_sp@2x.jpg"
+          src={assetUrl('/img/img_main_01_sp@2x.jpg')}
           alt=""
           className="h-[70vw] w-full object-cover md:h-[36vw] md:max-h-[560px]"
         />

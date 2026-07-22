@@ -1,5 +1,6 @@
 import { Reveal } from '../common/Reveal';
 import { Button } from '../common/Button';
+import { assetUrl } from '../../utils/asset';
 
 /**
  * 首页首屏视频背景，还原原站 p-grand-visual.-video：
@@ -16,9 +17,9 @@ export function HeroVideo() {
         autoPlay
         loop
         playsInline
-        poster="/img/img_main_movie_sp_05.jpg"
+        poster={assetUrl('/img/img_main_movie_sp_05.jpg')}
       >
-        <source src="/video/movie-04.mp4" type="video/mp4" />
+        <source src={assetUrl('/video/movie-04.mp4')} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/30" />
 

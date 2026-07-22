@@ -3,6 +3,7 @@ import { PageHero } from '../components/common/PageHero';
 import { Reveal } from '../components/common/Reveal';
 import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 const DIRECTORS = [
   {
@@ -47,7 +48,7 @@ export default function CompanyDirectorPage() {
             <Reveal key={d.name} type="swipe" delay={i + 1} as="li">
               <div className="flex flex-col gap-6 md:flex-row">
                 <img
-                  src={d.img}
+                  src={assetUrl(d.img)}
                   alt={d.name}
                   className="h-40 w-40 shrink-0 rounded object-cover md:h-48 md:w-48"
                 />

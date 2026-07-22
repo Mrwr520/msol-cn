@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
-const IMG_BASE = '/images/news/software-conference-2024';
+const IMG_BASE = assetUrl('/images/news/software-conference-2024');
 
 export default function NewsSoftwareConference2024Page() {
   useEffect(() => {
