@@ -111,7 +111,7 @@ export default function FeaturePage() {
       {/* 常见的烦恼 */}
       <section
         className="relative bg-primary-dark bg-cover bg-center py-[5.25rem] text-white"
-        style={{ backgroundImage: "url('/img/feature/img_main_01@2x.jpg')" }}
+        style={{ backgroundImage: `url('${assetUrl('/img/feature/img_main_01@2x.jpg')}')` }}
       >
         <div className="bg-black/40 py-4">
           <div className="mx-auto max-w-3xl px-6 text-center">
@@ -204,7 +204,7 @@ export default function FeaturePage() {
       {/* 信赖度 */}
       <section
         className="relative bg-primary-dark bg-cover bg-center py-[5.25rem] text-white"
-        style={{ backgroundImage: "url('/img/feature/img_main_02@2x.jpg')" }}
+        style={{ backgroundImage: `url('${assetUrl('/img/feature/img_main_02@2x.jpg')}')` }}
       >
         <div className="bg-black/40 py-4">
           <div className="mx-auto max-w-3xl px-6 text-center">

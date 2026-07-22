@@ -4,6 +4,7 @@ import { ContentSection } from '../components/common/ContentSection';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 const WAVES = [
   { era: '第一浪潮', year: '1950年代～', label: '战略咨询' },
@@ -93,7 +94,7 @@ export default function FeatureMissionPage() {
               ))}
             </ul>
             <img
-              src="/img/feature/img_wave@2x.png"
+              src={assetUrl('/img/feature/img_wave@2x.png')}
               alt="MSOL 波浪标识"
               className="h-28 w-auto shrink-0 object-contain"
             />

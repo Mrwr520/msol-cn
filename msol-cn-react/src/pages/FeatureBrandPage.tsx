@@ -4,6 +4,7 @@ import { SectionHeading } from '../components/common/SectionHeading';
 import { Reveal } from '../components/common/Reveal';
 import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
+import { assetUrl } from '../utils/asset';
 
 const PARAGRAPHS = [
   ['世界正以惊人的速度变化着。'],
@@ -70,7 +71,7 @@ export default function FeatureBrandPage() {
 
             <div className="mt-10 flex w-full justify-end">
               <img
-                src="/img/feature/img_logo_white@2x.png"
+                src={assetUrl('/img/feature/img_logo_white@2x.png')}
                 alt="MSOL 徽标"
                 className="ml-auto h-10 w-auto"
               />
