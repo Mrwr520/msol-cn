@@ -3,6 +3,7 @@ import { RootLayout } from './layouts/RootLayout';
 import HomePage from './pages/HomePage';
 import FeaturePage from './pages/FeaturePage';
 import FeatureMissionPage from './pages/FeatureMissionPage';
+import FeatureBrandPage from './pages/FeatureBrandPage';
 import BusinessPage from './pages/BusinessPage';
 import BusinessServicePage from './pages/BusinessServicePage';
 import BusinessSoftwarePage from './pages/BusinessSoftwarePage';
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/feature" element={<FeaturePage />} />
         <Route path="/feature/mission" element={<FeatureMissionPage />} />
+        <Route path="/feature/brand" element={<FeatureBrandPage />} />
         <Route path="/business" element={<BusinessPage />} />
         <Route path="/business/service" element={<BusinessServicePage />} />
         <Route path="/business/software" element={<BusinessSoftwarePage />} />

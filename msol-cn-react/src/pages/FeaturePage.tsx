@@ -3,35 +3,54 @@ import { PageHero } from '../components/common/PageHero';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Reveal } from '../components/common/Reveal';
 import { LinkCardList } from '../components/common/LinkCardList';
+import { Arrow } from '../components/common/Arrow';
 import { ContactCta } from '../components/common/ContactCta';
 
+const COMPANY_LINKS = [
+  {
+    href: 'https://www.msols.com/business/',
+    title: '业务介绍',
+    desc: '除了主营的PMO咨询服务之外，我们还有培训体系搭建、系统软件交付等其他业务模块。',
+  },
+  {
+    href: 'https://www.msols.com/company/',
+    title: '公司信息',
+    desc: '依托管理之力，为社会创造幸福价值。详解MSOL的组织架构、企业概况与发展沿革等内容。',
+  },
+  {
+    href: 'https://www.msols.com/news/',
+    title: '新闻',
+    desc: '为您介绍MSOL参与各类研讨活动与最新动态。',
+  },
+];
+
 const TROUBLES = [
-  '虽然接受了咨询，但是不清楚自己该如何有效应用……',
-  '项目经理人手不足，没有可用的人才，但是又需要上马很多项目……',
-  '未对公司整体的项目进行统一管理，决策滞后、陷入被动……',
-  '课题的解决方向不明确，不清楚有多少个重要的课题……',
-  '虽然接受了咨询，但咨询公司只是提出了改善方案，之后就不管了……',
-  '项目的需求分析做的不清楚，项目摇摆不定……',
+  '虽然已经接受过咨询服务，却不知该如何落地运用咨询成果……',
+  '项目经理人手匮乏，可托付的骨干人才稀缺，却有大量项目要同步启动……',
+  '公司整体项目进度未能统一管控，导致决策滞后，陷入被动……',
+  '课题的解决方向不明确，甚至无法理清核心问题……',
+  '接受咨询服务后，对方仅提交改善方案，后续全盘甩手不管，方案落地事宜全部交由我方自行处理……',
+  '项目需求界定含糊便仓促开工，致使整体项目偏离方向、举步维艰……',
 ];
 
 const STRENGTHS = [
   {
     n: 1,
-    title: '定制化项目实施支持',
-    main: '我们想客户之所想，为项目从引进到实施提供支持。',
-    desc: '和客户一起携手推进项目，站在客户的立场来运营项目。',
+    title: '专注项目落地执行支援',
+    main: '从客户的角度出发，全程护航方案导入至项目落地全流程。',
+    desc: '我们的咨询服务绝不止步于方案提案。始终立足客户视角、紧贴客户需求，我们坚信：咨询真正的价值，在于从体系导入到项目落地的全程陪伴与帮扶。',
   },
   {
     n: 2,
-    title: '项目管理的专业知识和技能',
-    main: '我们拥有在项目管理专业实践中培育起来的知识和技能。',
-    desc: '凭借我们在大量过往项目中积累的知识和技能，和客户一起携手推动项目走向成功。',
+    title: '深耕 PMO 专业赛道，积淀专业知识与实战经验',
+    main: '我们拥有深耕 PMO 专业领域积淀的理论体系与实战经验。',
+    desc: '早在业界普遍倡导落地执行支援理念之前，我们便以专业 PMO 的身份，持续化解因管理缺位滋生的各类项目难题。依托扎根一线打磨而来的实战经验，致力于不断提升项目落地成功率。',
   },
   {
     n: 3,
-    title: '拥有对行业有广泛而深入见解的咨询专家',
-    main: '我们聚集了一批对行业有广泛而深入见解的咨询专家。',
-    desc: '凭借从500多个项目中获得的知识，由各行业的专家领导客户的项目。',
+    title: '具备跨行业洞察的咨询专家顾问团队',
+    main: 'MSOL团队汇聚了一众拥有跨行业深度洞察的咨询专家。',
+    desc: '迄今已为各行各业累计承接了超 500 个项目咨询服务。因此无论您身处何种行业，我们都有经验丰厚、深谙行业规律的咨询专家团队，全程主导、引领贵司各类项目稳步推进。',
   },
 ];
 
@@ -55,6 +74,27 @@ const TRUST_POINTS = [
 ];
 
 export default function FeaturePage() {
+  const scrollToStrength = (n: number) => {
+    const el = document.getElementById(`strength-${n}`);
+    if (!el) return;
+    const headerOffset = 96; // 固定头部高度补偿
+    const target = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+    const start = window.scrollY;
+    const distance = target - start;
+    if (Math.abs(distance) < 1) return;
+    const duration = 600;
+    let startTime: number | null = null;
+    // easeInOutCubic 缓动
+    const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    const step = (now: number) => {
+      if (startTime === null) startTime = now;
+      const elapsed = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, start + distance * ease(elapsed));
+      if (elapsed < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
   useEffect(() => {
     document.title = '我们的特长 | Management Solutions （MSOL）';
   }, []);
@@ -62,22 +102,22 @@ export default function FeaturePage() {
   return (
     <>
       <PageHero
-        title="我们的特长"
-        subtitle="在瞬息万变的商业环境中，客户选择MSOL咨询是有理由的。"
+        title="我们的核心优势"
+        subtitle="身处瞬息万变的商业环境之下，MSOL 能够备受青睐，自有其独到缘由。"
         crumbs={[{ label: '首页', to: '/' }, { label: '特长' }]}
       />
 
       {/* 常见的烦恼 */}
       <section
-        className="relative bg-primary-dark bg-cover bg-center py-14 text-white"
+        className="relative bg-primary-dark bg-cover bg-center py-[5.25rem] text-white"
         style={{ backgroundImage: "url('/img/feature/img_main_01@2x.jpg')" }}
       >
         <div className="bg-black/40 py-4">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <Reveal type="fade">
-              <span className="text-sm font-bold text-white/80">常见的烦恼</span>
+              <span className="text-sm font-bold text-white/80">常见的困扰</span>
               <h2 className="mt-2 text-xl font-bold md:text-2xl">
-                您在推进项目时有没有遇到这样的烦恼呢？
+                您在项目推进的过程中，是否也遇到过这些难题？
               </h2>
             </Reveal>
           </div>
@@ -85,27 +125,64 @@ export default function FeaturePage() {
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-14">
-        <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        <ul className="flex flex-col gap-4">
           {TROUBLES.map((t, i) => (
             <Reveal key={t} type="swipe" delay={i + 1} as="li">
-              <div className="rounded border border-line bg-line/10 p-4 text-sm leading-relaxed text-ink/80">
+              <p className="whitespace-nowrap text-center text-sm leading-relaxed text-ink/80 md:text-base">
                 {t}
-              </div>
+              </p>
             </Reveal>
           ))}
         </ul>
 
         <div className="mt-16">
           <SectionHeading
-            sub="这些问题MSOL为您解决"
-            title="我们充分利用3大优势，为项目从引进到实施提供支持。"
+            sub="这些难题MSOL来破解"
+            title="我们充分利用3大优势，全程助力客户直至项目落地执行。"
           />
         </div>
 
-        <ul className="mt-10 space-y-8">
+        <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {STRENGTHS.map((s) => (
+            <Reveal key={`card-${s.n}`} type="swipe" delay={s.n} as="li">
+              <button
+                type="button"
+                onClick={() => scrollToStrength(s.n)}
+                className="group relative flex h-full w-full flex-col items-center overflow-hidden rounded-lg bg-primary-dark p-8 text-center text-white transition-colors"
+              >
+                <span className="absolute inset-0 z-0 -translate-x-full bg-primary-mid transition-transform duration-400 ease-msol group-hover:translate-x-0" />
+                <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-xl font-bold text-primary-dark">
+                  {s.n}
+                </span>
+                <span className="relative z-10 mt-5 flex flex-1 items-center text-lg font-bold leading-snug">
+                  {s.title}
+                </span>
+                <svg
+                  aria-hidden
+                  viewBox="0 0 24 24"
+                  className="relative z-10 mt-4 h-5 w-5 text-accent transition-transform group-hover:translate-y-1"
+                >
+                  <path
+                    d="M5 9l7 7 7-7"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </Reveal>
+          ))}
+        </ul>
+
+        <ul className="mt-12 space-y-8">
           {STRENGTHS.map((s) => (
             <Reveal key={s.n} type="swipe" delay={s.n} as="li">
-              <div className="flex flex-col gap-4 rounded border border-line p-6 md:flex-row md:items-start md:gap-8">
+              <div
+                id={`strength-${s.n}`}
+                className="flex scroll-mt-24 flex-col gap-4 rounded border border-line p-6 md:flex-row md:items-start md:gap-8"
+              >
                 <div className="flex shrink-0 items-center gap-3">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                     {s.n}
@@ -125,7 +202,7 @@ export default function FeaturePage() {
 
       {/* 信赖度 */}
       <section
-        className="relative bg-primary-dark bg-cover bg-center py-14 text-white"
+        className="relative bg-primary-dark bg-cover bg-center py-[5.25rem] text-white"
         style={{ backgroundImage: "url('/img/feature/img_main_02@2x.jpg')" }}
       >
         <div className="bg-black/40 py-4">
@@ -140,17 +217,33 @@ export default function FeaturePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-14">
+      <section className="mx-auto max-w-5xl px-6 py-16 lg:py-20">
         <SectionHeading
-          sub="信赖度证明"
+          sub="值得信赖的依据"
           title="作为项目管理公司，我们在提供定制化实施支持方面取得了业绩，获得了很高的评价。"
         />
-        <ul className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <ul className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
           {TRUST_POINTS.map((p, i) => (
             <Reveal key={p.head} type="swipe" delay={i + 1} as="li">
-              <div className="rounded border border-line p-5">
-                <h4 className="font-bold text-ink">{p.head}</h4>
-                <p className="mt-2 text-sm leading-relaxed text-ink/70">{p.desc}</p>
+              <div className="border-t border-line pt-6">
+                <h4 className="flex items-start gap-3 text-base font-bold text-ink md:text-lg">
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 24 24"
+                    className="mt-0.5 h-6 w-6 shrink-0 text-accent"
+                  >
+                    <path
+                      d="M4 12.5l5 5L20 6.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>{p.head}</span>
+                </h4>
+                <p className="mt-3 pl-9 text-sm leading-relaxed text-ink/60">{p.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -160,26 +253,53 @@ export default function FeaturePage() {
       <section className="border-t border-line py-14">
         <div className="mx-auto max-w-5xl px-6">
           <LinkCardList
-            columns={2}
+            columns={3}
             items={[
               {
                 to: '/feature/mission',
                 title: 'MSOL的使命',
-                desc: '介绍MSOL的品牌，使命和未来发展愿景。',
+                desc: '介绍MSOL的品牌、使命以及未来发展愿景。',
                 img: '/img/feature/img_mission@2x.jpg',
               },
               {
-                to: '/business',
-                title: '业务介绍',
-                desc: '我们是一家管理专业公司，主要从事PMO服务的同时，在活用专业技术利于实践的研修安排方面，以及提高管理能力的软件提供等方面也均有涉猎。',
+                to: '/feature/mission',
+                title: '品牌之路',
+                desc: '展现MSOL品牌所秉持的重要理念与追求，以及为达成使命愿景而铸就的品牌故事。',
+                img: '/img/feature/img_brand@2x.jpg',
               },
               {
-                to: '/company',
-                title: '公司信息',
-                desc: '在此为您介绍MSOL的组织体制、公司概要和发展历程等，MSOL以管理之力为社会的幸福度作出了贡献。',
+                to: '/books',
+                title: '书籍·报道介绍',
+                desc: '为您介绍MSOL创始人高桥的著作，以及杂志专访报道等内容。',
+                img: '/img/feature/img_books@2x.jpg',
               },
             ]}
           />
+        </div>
+      </section>
+
+      <section className="border-t border-line py-16 lg:py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <SectionHeading
+            sub="了解更多企业详情"
+            title="MSOL的事业内容以及企业经营信息等多类资讯，均在此公开。"
+            align="left"
+          />
+          <ul className="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 md:grid-cols-2">
+            {COMPANY_LINKS.map((c, i) => (
+              <Reveal key={c.href} type="swipe" delay={i + 1} as="li">
+                <a href={c.href} target="_blank" rel="noreferrer" className="group block">
+                  <span className="flex items-center text-base font-bold text-primary-dark">
+                    {c.title}
+                    <Arrow />
+                  </span>
+                  <span className="mt-2 block text-sm leading-relaxed text-ink/60">
+                    {c.desc}
+                  </span>
+                </a>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </section>
 

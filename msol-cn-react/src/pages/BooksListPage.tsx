@@ -11,17 +11,41 @@ export type BookItem = {
   isoDate: string;
   cover: string;
   summary: string;
+  /** 外部跳转链接（如微信公众号文章）；配置后卡片点击将在新标签页打开该链接 */
+  href?: string;
+  /** 封面缩放系数，用于对齐留白较多的立体书封面视觉大小，默认 1 */
+  coverScale?: number;
 };
 
 /** 图书推荐列表，后续新增图书只需追加条目 */
 export const BOOKS_LIST: BookItem[] = [
   {
     slug: 'pmo-guide',
-    title: '项目管理办公室(PMO)实践指南',
+    title: '项目管理办公室（PMO）实践指南',
     date: '2023.10.08',
     isoDate: '2023-10-08',
-    cover: '/images/books/img_00.png',
-    summary: '本书系统介绍了PMO的核心职能、组织定位、实施策略与管理工具，为PMO从业者与项目管理专业人员提供全面实操参考。',
+    cover: '/images/books/img_01.png',
+    summary: '汇集300余家国际企业导入PMO的实际案例。从人、组织、流程与工具四个维度，探讨PMO架构的最佳指导书。',
+    href: 'https://mp.weixin.qq.com/s/3N6VdElT',
+  },
+  {
+    slug: 'pmo-100-rules',
+    title: 'PMO不败法则：100个完美收工技巧',
+    date: '2023.10.08',
+    isoDate: '2023-10-08',
+    cover: '/images/books/img_02.png',
+    summary: '集精彩观点整合、实战案例和精辟分析于一体，为国内PMO从业者打开另一扇窗，帮助其成长，最终达到成功的大智慧。',
+    href: 'https://mp.weixin.qq.com/s/Fxir6TgwB',
+  },
+  {
+    slug: 'agile-breakthrough',
+    title: '突破敏捷困境：来自敏捷实践的144个提示',
+    date: '2023.10.08',
+    isoDate: '2023-10-08',
+    cover: '/images/books/img_03.png',
+    summary: '敏捷管理的实战宝典！汇集多行业实战经验，144个提示直击实践痛点。融合西方敏捷理念、日本精益思维与中国古代管理智慧，适配当下多变的国际形势与技术浪潮。',
+    href: 'https://mp.weixin.qq.com/s/f9UkOdzn',
+    coverScale: 1.4,
   },
 ];
 
@@ -49,7 +73,7 @@ export default function BooksListPage() {
               精选项目管理与PMO领域优秀书籍，助力专业能力提升。
             </p>
           </Reveal>
-          <span className="pointer-events-none absolute -bottom-7 right-4 hidden text-[132px] font-black leading-none tracking-tighter text-white/[0.035] lg:block">BOOKS</span>
+          <span className="pointer-events-none absolute -bottom-7 right-4 hidden text-[132px] font-black leading-none tracking-tighter text-white/[0.08] lg:block">BOOKS</span>
         </div>
       </section>
 
@@ -61,26 +85,32 @@ export default function BooksListPage() {
               <p className="text-xs font-bold tracking-[0.24em] text-primary">RECOMMENDED</p>
               <h2 className="mt-2 text-2xl font-bold text-ink md:text-3xl">推荐书目</h2>
             </div>
-            <span className="text-sm tabular-nums text-ink/40">
-              {String(BOOKS_LIST.length).padStart(2, '0')} 本
-            </span>
+
           </Reveal>
 
           <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {BOOKS_LIST.map((book, index) => (
-              <Reveal key={book.slug} type="swipe" delay={Math.min(index + 1, 4)} as="li" className="h-full">
-                <Link
-                  to={`/books/${book.slug}`}
-                  className="group relative flex h-full flex-col overflow-hidden bg-white shadow-[0_12px_40px_rgba(1,57,109,0.08)] transition-shadow duration-500 ease-msol lg:hover:shadow-[0_24px_60px_rgba(1,57,109,0.18)]"
-                >
+            {BOOKS_LIST.map((book, index) => {
+              const cardClass =
+                'group relative flex h-full flex-col overflow-hidden bg-white';
+              const inner = (
+                <>
                   {/* 封面 */}
                   <div className="relative aspect-[3/4] overflow-hidden bg-[#edf2f7]">
-                    <img
-                      src={book.cover}
-                      alt={book.title}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
+                    <div
+                      className="flex h-full w-full items-center justify-center"
+                      style={{
+                        transform: `translateX(6%)${book.coverScale ? ` scale(${book.coverScale})` : ''}`,
+                      }}
+                    >
+                      <img
+                        src={book.cover}
+                        alt={book.title}
+                        className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${
+                          book.coverScale ? 'object-contain' : 'object-cover'
+                        }`}
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                   {/* 文字区 */}
                   <div className="flex flex-1 flex-col p-6">
@@ -97,9 +127,22 @@ export default function BooksListPage() {
                   <div className="absolute bottom-0 left-0 h-1 w-full bg-line">
                     <span className="block h-full w-0 bg-accent transition-all duration-500 group-hover:w-full" />
                   </div>
-                </Link>
-              </Reveal>
-            ))}
+                </>
+              );
+              return (
+                <Reveal key={book.slug} type="swipe" delay={Math.min(index + 1, 4)} as="li" className="h-full">
+                  {book.href ? (
+                    <a href={book.href} target="_blank" rel="noreferrer" className={cardClass}>
+                      {inner}
+                    </a>
+                  ) : (
+                    <Link to={`/books/${book.slug}`} className={cardClass}>
+                      {inner}
+                    </Link>
+                  )}
+                </Reveal>
+              );
+            })}
           </ul>
         </section>
       </main>
