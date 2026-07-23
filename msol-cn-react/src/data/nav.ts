@@ -19,7 +19,8 @@ export const NAV_ITEMS: NavItem[] = [
     to: '/business',
     children: [
       { label: '业务介绍', to: '/business' },
-      { label: '服务', to: '/business/service' },
+      { label: 'PMO 服务', to: '/business/service' },
+      { label: 'EPMO / 部门PMO', to: 'https://service.msols.com/service/epmo' },
       { label: 'PROEVER', to: '/business/software' },
       { label: '培训', to: '/business/training' },
     ],

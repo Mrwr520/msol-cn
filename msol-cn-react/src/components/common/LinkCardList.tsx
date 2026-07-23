@@ -17,19 +17,46 @@ type LinkCardListProps = {
   columns?: 2 | 3;
   /** variant="solid" 还原首页深蓝底大卡片风格，适合作为页面主要入口展示 */
   variant?: 'outline' | 'solid';
+  /** horizontal=true 时图片在左、文字在右，横向长方形卡片 */
+  horizontal?: boolean;
 };
 
 /**
  * 还原原站 p-link-desc：底部「了解有关MSOL的更多信息」关联链接卡片组。
  * current=true 的项对应原站 -current 状态（不可点击，仅展示）。
  */
-export function LinkCardList({ items, columns = 3, variant = 'outline' }: LinkCardListProps) {
+export function LinkCardList({ items, columns = 3, variant = 'outline', horizontal = false }: LinkCardListProps) {
   const isSolid = variant === 'solid';
 
   return (
     <ul className={`grid grid-cols-1 gap-4 md:gap-6 ${columns === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
       {items.map((item, i) => {
-        const content = (
+        const content = horizontal ? (
+          <div className="flex items-center gap-4">
+            {item.img && (
+              <div className="w-24 shrink-0 overflow-hidden rounded sm:w-28">
+                <img src={assetUrl(item.img)} alt="" className="h-16 w-full object-cover sm:h-20" />
+              </div>
+            )}
+            <div className="min-w-0 flex-1">
+              <span
+                className={`flex items-center text-base font-bold md:text-lg ${
+                  isSolid ? 'text-white' : 'text-primary'
+                }`}
+              >
+                {item.title}
+                {!item.current && <Arrow />}
+              </span>
+              <span
+                className={`mt-2 block text-sm leading-relaxed ${
+                  isSolid ? 'text-white/80' : 'text-ink/70'
+                }`}
+              >
+                {item.desc}
+              </span>
+            </div>
+          </div>
+        ) : (
           <>
             {item.img && (
               <div className="mb-4 overflow-hidden rounded">

@@ -11,17 +11,17 @@ const COMPANY_LINKS = [
   {
     href: 'https://www.msols.com/business/',
     title: '业务介绍',
-    desc: '除了主营的PMO咨询服务之外，我们还有培训体系搭建、系统软件交付等其他业务模块。',
+    desc: '除了主营的 PMO 咨询服务之外，我们还有培训体系搭建、系统软件交付等其他业务板块。',
   },
   {
     href: 'https://www.msols.com/company/',
     title: '公司信息',
-    desc: '依托管理之力，为社会创造幸福价值。详解MSOL的组织架构、企业概况与发展沿革等内容。',
+    desc: '依托管理力量，为社会创造幸福价值。详解 MSOL 的组织架构、企业概况与发展历程等内容。',
   },
   {
     href: 'https://www.msols.com/news/',
     title: '新闻',
-    desc: '为您介绍MSOL参与各类研讨活动与最新动态。',
+    desc: '为您介绍 MSOL 参与的各类研讨活动与最新动向。',
   },
 ];
 
@@ -44,12 +44,26 @@ const STRENGTHS = [
   {
     n: 2,
     title: '深耕 PMO 专业赛道，积淀专业知识与实战经验',
+    cardTitle: (
+      <>
+        深耕 PMO 专业赛道
+        <br />
+        积淀专业知识与实战经验
+      </>
+    ),
     main: '我们拥有深耕 PMO 专业领域积淀的理论体系与实战经验。',
     desc: '早在业界普遍倡导落地执行支援理念之前，我们便以专业 PMO 的身份，持续化解因管理缺位滋生的各类项目难题。依托扎根一线打磨而来的实战经验，致力于不断提升项目落地成功率。',
   },
   {
     n: 3,
     title: '具备跨行业洞察的咨询专家顾问团队',
+    cardTitle: (
+      <>
+        具备跨行业洞察的
+        <br />
+        咨询专家顾问团队
+      </>
+    ),
     main: 'MSOL团队汇聚了一众拥有跨行业深度洞察的咨询专家。',
     desc: '迄今已为各行各业累计承接了超 500 个项目咨询服务。因此无论您身处何种行业，我们都有经验丰厚、深谙行业规律的咨询专家团队，全程主导、引领贵司各类项目稳步推进。',
   },
@@ -57,20 +71,20 @@ const STRENGTHS = [
 
 const TRUST_POINTS = [
   {
-    head: '东京证券交易所第一部的上市企业、经营稳定、业务正在扩大',
-    desc: '作为所有企业的管理平台，我们实现了稳定增长和持续的业务扩展。',
+    head: '东京证券交易所主板上市企业，经营稳健、业务持续拓展',
+    desc: '我们致力于打造适配各类企业的管理平台，依托稳固的经营根基，不断实现业务成长与规模扩张。',
   },
   {
-    head: '顾客的回头率在95%以上',
-    desc: '我们和客户不仅仅是单个的项目的关系，作为帮助客户充实管理能力的不可或缺的业务伙伴，我们获得了客户的好评。',
+    head: '经由 MSOL 参与项目后，客户满意度超 92%',
+    desc: '依托管理能力赋能补足，深受客户信赖，被视作至关重要的商业合作伙伴。',
   },
   {
-    head: '500多个项目管理的实际经验',
-    desc: '我们为客户的各种项目提供支持服务，涵盖了从新业务开发、经营改革、到系统开发等广泛的领域。',
+    head: '年均落地项目导入案例超 960 件',
+    desc: '我们可提供覆盖新业务孵化、管理变革，系统开发等各类多元化项目的全方位支持。',
   },
   {
-    head: '作为管理界的顶级公司出版了各种书籍',
-    desc: '以本公司代表人高桥先生为首，我们通过出版管理相关的各种书籍以及向Web媒体投稿，发布了管理上所必须的方方面面的信息。',
+    head: '身为管理行业领军者，持续推出多部专业著作',
+    desc: '高桥信也董事长牵头撰写诸多管理类书籍，并为各大线上媒体专栏撰稿，持续面向有管理需求的各界人士输出专业知识与理念。',
   },
 ];
 
@@ -156,7 +170,7 @@ export default function FeaturePage() {
                   {s.n}
                 </span>
                 <span className="relative z-10 mt-5 flex flex-1 items-center text-lg font-bold leading-snug">
-                  {s.title}
+                  {'cardTitle' in s ? s.cardTitle : s.title}
                 </span>
                 <svg
                   aria-hidden
@@ -209,9 +223,9 @@ export default function FeaturePage() {
         <div className="bg-black/40 py-4">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <Reveal type="fade">
-              <span className="text-sm font-bold text-white/80">信赖度</span>
+              <span className="text-sm font-bold text-white/80">信赖保障</span>
               <h2 className="mt-2 text-xl font-bold md:text-2xl">
-                贵公司真的是有业绩、值得信赖的企业吗？
+                MSOL 是拥有成熟企业服务实绩背书，并值得托付信赖的公司吗？
               </h2>
             </Reveal>
           </div>
@@ -251,31 +265,39 @@ export default function FeaturePage() {
         </ul>
       </section>
 
-      <section className="border-t border-line py-14">
+      <section className="border-t border-line py-16 lg:py-20">
         <div className="mx-auto max-w-5xl px-6">
+          <SectionHeading
+            sub="了解更多MSOL特长"
+            title="我们备有丰富的内容，助您更深入地了解MSOL。"
+            align="left"
+          />
+          <div className="mt-10">
           <LinkCardList
-            columns={3}
+            columns={2}
+            horizontal
             items={[
               {
                 to: '/feature/mission',
-                title: 'MSOL的使命',
-                desc: '介绍MSOL的品牌、使命以及未来发展愿景。',
+                title: 'MSOL 的使命',
+                desc: '为您介绍 MSOL 企业理念、使命宗旨以及未来发展愿景与布局规划。',
                 img: '/img/feature/img_mission@2x.jpg',
               },
               {
-                to: '/feature/mission',
-                title: '品牌之路',
-                desc: '展现MSOL品牌所秉持的重要理念与追求，以及为达成使命愿景而铸就的品牌故事。',
+                to: '/feature/brand',
+                title: 'MSOL 的宗旨',
+                desc: '诠释 MSOL 企业核心意义与发展目标，赋能使命与愿景落地的品牌故事。',
                 img: '/img/feature/img_brand@2x.jpg',
               },
               {
                 to: '/books',
-                title: '书籍·报道介绍',
-                desc: '为您介绍MSOL创始人高桥的著作，以及杂志专访报道等内容。',
+                title: '图书推荐',
+                desc: '精选项目管理与 PMO 领域优秀书籍，助力专业能力提升。',
                 img: '/img/feature/img_books@2x.jpg',
               },
             ]}
           />
+          </div>
         </div>
       </section>
 
@@ -283,7 +305,7 @@ export default function FeaturePage() {
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeading
             sub="了解更多企业详情"
-            title="MSOL的事业内容以及企业经营信息等多类资讯，均在此公开。"
+            title="我们对外公示 MSOL 的业务内容以及企业经营信息等各类资讯。"
             align="left"
           />
           <ul className="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 md:grid-cols-2">

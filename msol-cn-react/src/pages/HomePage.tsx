@@ -19,7 +19,13 @@ export default function HomePage() {
       <section className="mx-auto max-w-5xl px-6 py-16 lg:py-24">
         <SectionHeading
           sub="MSOL 的业务"
-          title="我们凭借作为专业的管理咨询公司积累的知识经验和技巧，解决客户的课题、为客户提供各种支援。"
+          title={
+            <>
+              我们凭借作为专业的管理咨询公司积累的知识经验和技巧，
+              <br />
+              解决客户的课题、为客户提供各种支援。
+            </>
+          }
         />
         <div className="mt-10">
           <BusinessList />

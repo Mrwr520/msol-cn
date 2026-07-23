@@ -20,7 +20,20 @@ export function BackToTop() {
     <button
       type="button"
       aria-label="回到顶部"
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      onClick={() => {
+        const start = window.scrollY;
+        if (start < 1) return;
+        const duration = 600;
+        let startTime: number | null = null;
+        const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+        const step = (now: number) => {
+          if (startTime === null) startTime = now;
+          const elapsed = Math.min((now - startTime) / duration, 1);
+          window.scrollTo(0, start * (1 - ease(elapsed)));
+          if (elapsed < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }}
       className={`group fixed bottom-6 right-6 z-[150] h-[60px] w-[60px] overflow-hidden rounded bg-primary-mid shadow-lg transition-all duration-400 ease-msol ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-[10px] opacity-0 pointer-events-none'
       }`}

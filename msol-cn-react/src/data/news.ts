@@ -6,6 +6,8 @@ export type NewsItem = {
   title: string;
   summary: string;
   body: string[];
+  /** 新闻详情页顶部图片路径（相对 public） */
+  image?: string;
   sourceUrl?: string;
   sourceLabel?: string;
 };
@@ -15,6 +17,22 @@ export type NewsItem = {
  * 内容依据 MSOL 官方公司沿革及公开披露整理，并在详情页标注原始来源。
  */
 export const NEWS_LIST: NewsItem[] = [
+  {
+    slug: 'office-relocation-2026',
+    date: '2026.03.27',
+    isoDate: '2026-03-27',
+    category: '企业动态',
+    title: '官宣搬迁！| 新址新语，静启新程',
+    summary: '麦嵩隆将于2026年4月1日正式搬迁至新办公地址：上海市静安区北京西路1701号静安中华大厦2602室。',
+    image: '/images/news/img_office_relocation.png',
+    body: [
+      '尊敬的各位客户、合作伙伴与同仁：',
+      '承蒙一路信任相伴，为匹配公司项目管理服务升级、优化协作体验，麦嵩隆将于2026年4月1日正式搬迁至新办公地址：上海市静安区北京西路1701号静安中华大厦2602室。',
+      '新环境承载新征程，我们将以更完善的空间、更高效的协同，持续深耕项目管理，与您同心推进每一个里程碑，共赴更清晰的目标与更可期的成果。',
+    ],
+    sourceUrl: 'https://mp.weixin.qq.com/s/office-relocation-2026',
+    sourceLabel: 'PMO达人阁 微信公众号',
+  },
   {
     slug: 'pmi-salon-2023',
     date: '2023.05.12',

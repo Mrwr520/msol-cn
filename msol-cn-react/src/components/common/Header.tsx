@@ -114,12 +114,23 @@ export function Header() {
                   <ul className="invisible absolute left-0 top-full z-30 min-w-[180px] rounded bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
                     {item.children.map((child) => (
                       <li key={child.to}>
-                        <Link
-                          to={child.to}
-                          className="block whitespace-nowrap px-4 py-2 text-sm text-ink hover:bg-line/40 hover:text-primary-dark"
-                        >
-                          {child.label}
-                        </Link>
+                        {child.to.startsWith('http') ? (
+                          <a
+                            href={child.to}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="block whitespace-nowrap px-4 py-2 text-sm text-ink hover:bg-line/40 hover:text-primary-dark"
+                          >
+                            {child.label}
+                          </a>
+                        ) : (
+                          <Link
+                            to={child.to}
+                            className="block whitespace-nowrap px-4 py-2 text-sm text-ink hover:bg-line/40 hover:text-primary-dark"
+                          >
+                            {child.label}
+                          </Link>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -228,16 +239,29 @@ export function Header() {
                       openAccordion === item.label ? 'max-h-[300px]' : 'max-h-0'
                     }`}
                   >
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.to}
-                        to={child.to}
-                        className="block px-8 py-3 text-sm text-ink"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                    {item.children.map((child) =>
+                      child.to.startsWith('http') ? (
+                        <a
+                          key={child.to}
+                          href={child.to}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="block px-8 py-3 text-sm text-ink"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {child.label}
+                        </a>
+                      ) : (
+                        <Link
+                          key={child.to}
+                          to={child.to}
+                          className="block px-8 py-3 text-sm text-ink"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ),
+                    )}
                   </div>
                 </>
               ) : (

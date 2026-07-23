@@ -2,11 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/msol-cn/',  // 改成你的 GitHub 仓库名
+  base: command === 'build' ? '/msol-cn/' : '/',
   server: {
     host: true,
     allowedHosts: true,
   },
-})
+}))

@@ -7,19 +7,16 @@ import { assetUrl } from '../../utils/asset';
 export function HeroSlide() {
   return (
     <section className="relative overflow-hidden">
-      <picture>
-        <source media="(min-width: 768px)" srcSet={assetUrl('/img/img_main_01@2x.jpg')} />
-        <img
-          src={assetUrl('/img/img_main_01_sp@2x.jpg')}
-          alt=""
-          className="h-[70vw] w-full object-cover md:h-[36vw] md:max-h-[560px]"
-        />
-      </picture>
+      <img
+        src={assetUrl('/img/img_talk_01.jpg')}
+        alt=""
+        className="h-[70vw] w-full object-cover md:h-[36vw] md:max-h-[560px]"
+      />
       <div className="absolute inset-0 flex items-center bg-black/25">
         <div className="mx-auto w-full max-w-5xl px-6 text-white">
           <Reveal type="swipe">
             <p className="text-xl font-bold leading-relaxed md:text-3xl">
-              让管理成为驱动世界发展的原动力。
+              让管理，成为推动世界进步的引擎
             </p>
           </Reveal>
           <Reveal type="swipe" delay={10} className="mt-4 max-w-xl">

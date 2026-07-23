@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { Arrow } from './Arrow';
 
 type ButtonVariant = 'darkblue' | 'inverted' | 'darkblue-inverted';
@@ -64,10 +65,19 @@ export function Button(props: ButtonProps) {
   );
 
   if ('href' in props && props.href) {
+    // External links (http/https or explicit target) use <a>; internal routes use <Link>
+    const isExternal = /^https?:\/\//.test(props.href) || props.target === '_blank';
+    if (isExternal) {
+      return (
+        <a href={props.href} target={props.target} rel={props.target === '_blank' ? 'noreferrer' : undefined} className={classes}>
+          {content}
+        </a>
+      );
+    }
     return (
-      <a href={props.href} target={props.target} className={classes}>
+      <Link to={props.href} className={classes}>
         {content}
-      </a>
+      </Link>
     );
   }
 

@@ -10,10 +10,10 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#006dac",
-        "primary-dark": "#01396d",
-        "primary-mid": "#1b5597",
-        accent: "#f08201",
+        primary: "#143D96",
+        "primary-dark": "#143D96",
+        "primary-mid": "#5673B3",
+        accent: "#ff8440",
         ink: "#333333",
         line: "#e5e5e5",
       },

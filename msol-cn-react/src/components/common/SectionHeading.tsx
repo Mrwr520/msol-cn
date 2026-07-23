@@ -1,8 +1,9 @@
+import type { ReactNode } from 'react';
 import { Reveal } from './Reveal';
 
 type SectionHeadingProps = {
   sub?: string;
-  title: string;
+  title: ReactNode;
   align?: 'left' | 'center';
   className?: string;
 };

@@ -4,6 +4,7 @@ import { Reveal } from '../components/common/Reveal';
 import { Arrow } from '../components/common/Arrow';
 import { ContactCta } from '../components/common/ContactCta';
 import { NEWS_LIST } from '../data/news';
+import { assetUrl } from '../utils/asset';
 
 const NewsSoftwareConference2024Page = lazy(() => import('./NewsSoftwareConference2024Page'));
 const NewsPmiConference2023Page = lazy(() => import('./NewsPmiConference2023Page'));
@@ -79,6 +80,13 @@ export default function NewsDetailPage() {
               <header className="mb-10 border-b border-primary-dark/10 pb-7">
                 <p className="text-xs font-bold tracking-[0.22em] text-primary">PRESS RELEASE</p>
               </header>
+              {news.image && (
+                <img
+                  src={assetUrl(news.image)}
+                  alt={news.title}
+                  className="mb-8 w-full rounded-lg"
+                />
+              )}
               <div className="space-y-7 text-base leading-8 text-ink/75 md:text-[17px] md:leading-9">
                 {news.body.map((paragraph, index) => (
                   <p key={index} className={index === 0 ? 'border-l-2 border-accent pl-5 font-medium text-ink' : ''}>
