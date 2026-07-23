@@ -11,7 +11,7 @@ const BUSINESS_ITEMS = [
     desc: '人力托举项目成功',
     links: [
       { label: '什么是PMO？', to: '/business/service' },
-      { label: 'EPMO/部门项目管理办公室', to: '/business/service' },
+      { label: 'EPMO/部门项目管理办公室', to: 'https://service.msols.com/service/epmo' },
     ],
   },
   {
@@ -53,17 +53,24 @@ export function BusinessList() {
             </Link>
 
             <ul className="mt-6 w-full max-w-[280px] space-y-2">
-              {item.links.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.to}
-                    className="group flex items-center justify-between border-b border-line py-2 text-left text-sm text-ink/70 transition-colors hover:text-primary"
-                  >
-                    <span>- {link.label}</span>
-                    <Arrow />
-                  </Link>
-                </li>
-              ))}
+              {item.links.map((link) => {
+                const isExternal = /^https?:\/\//.test(link.to);
+                const LinkTag = isExternal ? 'a' : Link;
+                const linkProps = isExternal
+                  ? { href: link.to, target: '_blank', rel: 'noreferrer' }
+                  : { to: link.to };
+                return (
+                  <li key={link.label}>
+                    <LinkTag
+                      {...(linkProps as any)}
+                      className="group flex items-center justify-between border-b border-line py-2 text-left text-sm text-ink/70 transition-colors hover:text-primary"
+                    >
+                      <span>- {link.label}</span>
+                      <Arrow />
+                    </LinkTag>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </Reveal>
