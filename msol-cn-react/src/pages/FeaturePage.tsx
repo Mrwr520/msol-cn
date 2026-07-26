@@ -235,7 +235,7 @@ export default function FeaturePage() {
       <section className="mx-auto max-w-5xl px-6 py-16 lg:py-20">
         <SectionHeading
           sub="值得信赖的依据"
-          title="作为项目管理公司，我们在提供定制化实施支持方面取得了业绩，获得了很高的评价。"
+          title="作为专业的项目管理公司，我们凭借 PMO 领域丰富的实操业绩，收获了业界高度认可。"
         />
         <ul className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
           {TRUST_POINTS.map((p, i) => (

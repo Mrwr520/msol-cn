@@ -28,7 +28,7 @@ const DIRECTORS = [
 
 export default function CompanyDirectorPage() {
   useEffect(() => {
-    document.title = '公司概要 | 董事信息 | Management Solutions （MSOL）';
+    document.title = '公司简介 | 董事信息 | Management Solutions （MSOL）';
   }, []);
 
   return (
@@ -67,7 +67,7 @@ export default function CompanyDirectorPage() {
         <div className="mx-auto max-w-5xl px-6">
           <LinkCardList
             items={[
-              { to: '/company/company-data', title: '公司概要', desc: 'MSOL集团的规模、成立时间、管理层、公司所在地等。' },
+              { to: '/company/company-data', title: '公司简介', desc: 'MSOL集团全称、成立日期、管理层人员、企业地址等企业相关营业信息公示。' },
               { to: '/company/history', title: '发展历程', desc: '为您介绍自2005年以来MSOL集团的发展历程。' },
               { to: '/company/director', title: '董事信息', desc: '为您介绍公司董事。', current: true },
             ]}

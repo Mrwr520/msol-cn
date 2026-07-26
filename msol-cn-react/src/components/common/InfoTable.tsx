@@ -3,7 +3,7 @@ import { Reveal } from './Reveal';
 
 export type InfoRow = { label: string; value: ReactNode };
 
-/** 还原原站 c-table：左侧标签、右侧内容的信息表格，用于公司概要/发展历程等页面 */
+/** 还原原站 c-table：左侧标签、右侧内容的信息表格，用于公司简介/发展历程等页面 */
 export function InfoTable({ rows }: { rows: InfoRow[] }) {
   return (
     <Reveal type="fade" as="div">

@@ -1,4 +1,4 @@
-export type NavChild = { label: string; to: string };
+export type NavChild = { label: string; to: string; external?: boolean };
 export type NavItem = { label: string; to: string; children?: NavChild[] };
 
 /** 对应原站 l-header__nav 主菜单结构 */
@@ -29,13 +29,14 @@ export const NAV_ITEMS: NavItem[] = [
     label: '公司信息',
     to: '/company',
     children: [
-      { label: '公司信息', to: '/company' },
-      { label: '公司概要', to: '/company/company-data' },
-      { label: '董事信息', to: '/company/director' },
+      { label: '公司简介', to: '/company' },
+      { label: '组织架构', to: '/company/company-data' },
+      { label: '三ZERO宣言', to: 'https://www.msols.com/company/3zero/', external: true },
+      { label: 'MSOL的健康经营', to: 'https://www.msols.com/company/health/', external: true },
       { label: '发展历程', to: '/company/history' },
     ],
   },
   { label: '新闻', to: '/news' },
+  { label: '联系我们', to: '/contact' },
+  { label: '加入我们', to: '/careers' },
 ];
-
-export const CONTACT_LINK = { label: '联系我们', to: '/contact' };

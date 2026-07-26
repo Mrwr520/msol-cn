@@ -79,7 +79,7 @@ const CASES = [
   {
     img: '/img/case02.jpg',
     points: ['统筹管理多个项目', '向经营管理层准确汇报项目整体状况'],
-    solution: '企业级 PMO（EPMO）/ 部门 PMO 服务为您提供解决方案 ›',
+    solution: 'EPMO / 部门PMO服务为您提供解决方案 ›',
     title: 'EPMO / 部门 PMO',
     href: 'https://service.msols.com/service/epmo',
   },
@@ -175,13 +175,16 @@ export default function BusinessPage() {
                   alt=""
                   className="h-48 w-full rounded-lg object-cover"
                 />
-                <ul className="mt-5 flex-1 space-y-2 text-center">
-                  {c.points.map((p) => (
-                    <li key={p} className="text-sm text-ink/80">
-                      {p}
-                    </li>
-                  ))}
-                </ul>
+                <div className="mt-5 flex flex-1 justify-center">
+                  <ul className="space-y-2">
+                    {c.points.map((p) => (
+                      <li key={p} className="flex items-start gap-2 text-sm text-ink/80">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ink/60" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <p className="mt-4 text-center text-base font-bold text-primary underline decoration-primary underline-offset-4">
                   <a href={c.href} target="_blank" rel="noreferrer">
                     {c.solution}

@@ -16,6 +16,8 @@ export type BookItem = {
   href?: string;
   /** 封面缩放系数，用于对齐留白较多的立体书封面视觉大小，默认 1 */
   coverScale?: number;
+  /** 平面封面图，需要添加阴影效果 */
+  flatCover?: boolean;
 };
 
 /** 图书推荐列表，后续新增图书只需追加条目 */
@@ -23,30 +25,31 @@ export const BOOKS_LIST: BookItem[] = [
   {
     slug: 'pmo-guide',
     title: '项目管理办公室（PMO）实践指南',
-    date: '2023.10.08',
-    isoDate: '2023-10-08',
+    date: '2018.04',
+    isoDate: '2018-04-01',
     cover: assetUrl('/images/books/img_01.png'),
     summary: '汇集300余家国际企业导入PMO的实际案例。从人、组织、流程与工具四个维度，探讨PMO架构的最佳指导书。',
-    href: 'https://mp.weixin.qq.com/s/3N6VdElT',
+    href: 'https://mp.weixin.qq.com/s/3N6VdElTWX7PuA4Y1r-ydQ',
   },
   {
     slug: 'pmo-100-rules',
     title: 'PMO不败法则：100个完美收工技巧',
-    date: '2023.10.08',
-    isoDate: '2023-10-08',
+    date: '2019.09',
+    isoDate: '2019-09-01',
     cover: assetUrl('/images/books/img_02.png'),
     summary: '集精彩观点整合、实战案例和精辟分析于一体，为国内PMO从业者打开另一扇窗，帮助其成长，最终达到成功的大智慧。',
-    href: 'https://mp.weixin.qq.com/s/Fxir6TgwB',
+    href: 'https://mp.weixin.qq.com/s/Fxir6TgwBsV-M9yOrgxR8g',
   },
   {
     slug: 'agile-breakthrough',
     title: '突破敏捷困境：来自敏捷实践的144个提示',
-    date: '2023.10.08',
-    isoDate: '2023-10-08',
+    date: '2025.11',
+    isoDate: '2025-11-01',
     cover: assetUrl('/images/books/img_03.png'),
     summary: '敏捷管理的实战宝典！汇集多行业实战经验，144个提示直击实践痛点。融合西方敏捷理念、日本精益思维与中国古代管理智慧，适配当下多变的国际形势与技术浪潮。',
-    href: 'https://mp.weixin.qq.com/s/f9UkOdzn',
-    coverScale: 1.4,
+    href: 'https://mp.weixin.qq.com/s/f9UkOdznHF_clB9R3WytYA',
+    coverScale: 0.84,
+    flatCover: true,
   },
 ];
 
@@ -100,7 +103,9 @@ export default function BooksListPage() {
                     <div
                       className="flex h-full w-full items-center justify-center"
                       style={{
-                        transform: `translateX(6%)${book.coverScale ? ` scale(${book.coverScale})` : ''}`,
+                        transform: book.flatCover 
+                          ? `translateY(-3%)${book.coverScale ? ` scale(${book.coverScale})` : ''}`
+                          : `translateX(6%)${book.coverScale ? ` scale(${book.coverScale})` : ''}`,
                       }}
                     >
                       <img
@@ -108,14 +113,14 @@ export default function BooksListPage() {
                         alt={book.title}
                         className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${
                           book.coverScale ? 'object-contain' : 'object-cover'
-                        }`}
+                        } ${book.flatCover ? 'drop-shadow-[0_8px_24px_rgba(0,0,0,0.25)]' : ''}`}
                         loading="lazy"
                       />
                     </div>
                   </div>
                   {/* 文字区 */}
                   <div className="flex flex-1 flex-col p-6">
-                    <span className="mb-3 text-xs tabular-nums tracking-wider text-ink/40">{book.date}</span>
+                    <span className="mb-3 text-2xl font-bold tabular-nums tracking-wider text-primary">{book.date}</span>
                     <h3 className="text-lg font-bold leading-[1.6] text-ink group-hover:text-primary-dark">
                       {book.title}
                     </h3>

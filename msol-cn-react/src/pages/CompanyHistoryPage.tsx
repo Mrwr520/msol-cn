@@ -25,6 +25,17 @@ const HISTORY = [
   { label: '2019年11月', value: 'MI SERIES《赢得国际竞争的管理法》日文版出版' },
   { label: '2020年6月', value: '远程办公时代的全新管理模式『PMO ONLINE』正式上线' },
   { label: '2020年8月', value: '项目管理能力诊断『PROEVER管理评分（Management Score）』正式上线' },
+  { label: '2021年7月', value: '《新式自上而下经营指南》日本版出版' },
+  { label: '2021年10月', value: '收购株式会社TETRA Software' },
+  { label: '2022年4月', value: '东京证券交易所 Prime 主板市场调整变更' },
+  { label: '', value: '合并设立株式会社TETRA Digital' },
+  { label: '2024年1月', value: '数字化业务分拆剥离，成立株式会社MSOL Digital' },
+  { label: '2024年7月', value: '关西分公司正式成立' },
+  { label: '2024年10月', value: '麦嵩隆管理咨询首次亮相CIIE' },
+  { label: '2024年11月', value: '获得PMI项目管理大会"优秀合作伙伴"' },
+  { label: '2025年11月', value: '《突破敏捷困境：来自敏捷实践的144个提示》中文（简体字）版出版' },
+  { label: '', value: '新书亮相PMI大会，首届签售会圆满落幕' },
+  { label: '2026年3月', value: '业务范围扩大，麦嵩隆管理咨询搬迁新址' },
 ];
 
 export default function CompanyHistoryPage() {
@@ -52,7 +63,7 @@ export default function CompanyHistoryPage() {
         <div className="mx-auto max-w-5xl px-6">
           <LinkCardList
             items={[
-              { to: '/company/company-data', title: '公司概要', desc: 'MSOL集团的规模、成立时间、管理层、公司所在地等。' },
+              { to: '/company/company-data', title: '公司简介', desc: 'MSOL集团全称、成立日期、管理层人员、企业地址等企业相关营业信息公示。' },
               { to: '/company/history', title: '发展历程', desc: '为您介绍自2005年以来MSOL集团的发展历程。', current: true },
               { to: '/company/director', title: '董事信息', desc: '为您介绍公司董事。' },
             ]}

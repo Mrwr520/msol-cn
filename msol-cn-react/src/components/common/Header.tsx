@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { NAV_ITEMS, CONTACT_LINK } from '../../data/nav';
+import { NAV_ITEMS } from '../../data/nav';
 import { assetUrl } from '../../utils/asset';
 
 /** 对应原站 HeaderScroll 的触发阈值（scrollTop > 200 时收缩+变色） */
@@ -48,27 +48,50 @@ export function Header() {
           scrolled ? 'lg:h-11 lg:delay-[50ms]' : 'lg:h-[76px] lg:delay-0'
         }`}
       >
-        <Link to="/" className="relative block h-8 overflow-hidden lg:h-9">
-          <img
-            src={assetUrl('/icons/logo.svg')}
-            alt="MSOL徽标"
-            className={`h-8 transform-gpu transition-[opacity,transform] duration-300 ease-msol lg:h-9 ${
-              scrolled
-                ? 'lg:-translate-y-2 lg:opacity-0 lg:delay-[120ms]'
-                : 'lg:translate-y-0 lg:opacity-100 lg:delay-[100ms]'
-            }`}
-          />
-          <img
-            src={assetUrl('/icons/logo_white.svg')}
-            alt=""
-            aria-hidden="true"
-            className={`absolute inset-0 hidden h-8 transform-gpu transition-[opacity,transform] duration-300 ease-msol lg:block lg:h-9 ${
-              scrolled
-                ? 'lg:translate-y-0 lg:opacity-100 lg:delay-[180ms]'
-                : 'lg:-translate-y-2 lg:opacity-0 lg:delay-0'
-            }`}
-          />
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link to="/" className="relative block h-8 overflow-hidden lg:h-9">
+            <img
+              src={assetUrl('/icons/logo.svg')}
+              alt="MSOL徽标"
+              className={`h-8 transform-gpu transition-[opacity,transform] duration-300 ease-msol lg:h-9 ${
+                scrolled
+                  ? 'lg:-translate-y-2 lg:opacity-0 lg:delay-[120ms]'
+                  : 'lg:translate-y-0 lg:opacity-100 lg:delay-[100ms]'
+              }`}
+            />
+            <img
+              src={assetUrl('/icons/logo_white.svg')}
+              alt=""
+              aria-hidden="true"
+              className={`absolute inset-0 hidden h-8 transform-gpu transition-[opacity,transform] duration-300 ease-msol lg:block lg:h-9 ${
+                scrolled
+                  ? 'lg:translate-y-0 lg:opacity-100 lg:delay-[180ms]'
+                  : 'lg:-translate-y-2 lg:opacity-0 lg:delay-0'
+              }`}
+            />
+          </Link>
+          <div className="relative block h-8 translate-y-[2px] overflow-hidden lg:h-9">
+            <img
+              src={assetUrl('/icons/msol_20th-logo.svg')}
+              alt="MSOL 20周年"
+              className={`h-8 transform-gpu transition-[opacity,transform] duration-300 ease-msol lg:h-9 ${
+                scrolled
+                  ? 'lg:-translate-y-2 lg:opacity-0 lg:delay-[120ms]'
+                  : 'lg:translate-y-0 lg:opacity-100 lg:delay-[100ms]'
+              }`}
+            />
+            <img
+              src={assetUrl('/icons/msol_20th-logo_white.svg')}
+              alt=""
+              aria-hidden="true"
+              className={`absolute inset-0 hidden h-8 transform-gpu transition-[opacity,transform] duration-300 ease-msol lg:block lg:h-9 ${
+                scrolled
+                  ? 'lg:translate-y-0 lg:opacity-100 lg:delay-[180ms]'
+                  : 'lg:-translate-y-2 lg:opacity-0 lg:delay-0'
+              }`}
+            />
+          </div>
+        </div>
 
         {/* SP 汉堡按钮 */}
         <button
@@ -138,12 +161,6 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <Link
-            to={CONTACT_LINK.to}
-            className="shrink-0 rounded bg-primary px-4 py-2 text-sm font-bold text-white transition-colors duration-150 hover:bg-primary-dark xl:px-5"
-          >
-            {CONTACT_LINK.label}
-          </Link>
 
           {/*
             桌面语言切换：details 提供原生点击/键盘开合；hover 与 focus-within
@@ -275,15 +292,6 @@ export function Header() {
               )}
             </li>
           ))}
-          <li>
-            <Link
-              to={CONTACT_LINK.to}
-              className="block px-5 py-4 text-sm font-bold text-primary-dark"
-              onClick={() => setMenuOpen(false)}
-            >
-              {CONTACT_LINK.label}
-            </Link>
-          </li>
         </ul>
 
         {/* SP 独立语言区：触屏直接呈现全部选项，无需 hover */}

@@ -17,6 +17,7 @@ import NewsDetailPage from './pages/NewsDetailPage';
 import BooksListPage from './pages/BooksListPage';
 import BookPmoGuidePage from './pages/BookPmoGuidePage';
 import ContactPage from './pages/ContactPage';
+import CareersPage from './pages/CareersPage';
 import PrivacyPage from './pages/PrivacyPage';
 import MarketingPage from './pages/MarketingPage';
 import TvcmPage from './pages/TvcmPage';
@@ -43,6 +44,7 @@ function App() {
         <Route path="/books" element={<BooksListPage />} />
         <Route path="/books/pmo-guide" element={<BookPmoGuidePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/careers" element={<CareersPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/marketing" element={<MarketingPage />} />
         <Route path="/tvcm" element={<TvcmPage />} />

@@ -7,7 +7,10 @@ import { NEWS_LIST } from '../data/news';
 import { assetUrl } from '../utils/asset';
 
 const NewsSoftwareConference2024Page = lazy(() => import('./NewsSoftwareConference2024Page'));
+const NewsPmiConference2024Page = lazy(() => import('./NewsPmiConference2024Page'));
+const NewsCiie2024Page = lazy(() => import('./NewsCiie2024Page'));
 const NewsPmiConference2023Page = lazy(() => import('./NewsPmiConference2023Page'));
+const NewsPmiConference2025Page = lazy(() => import('./NewsPmiConference2025Page'));
 const NewsPmiSalon2023Page = lazy(() => import('./NewsPmiSalon2023Page'));
 const NewsPmiRep2023Page = lazy(() => import('./NewsPmiRep2023Page'));
 const NewsSoftwareAnnual2021Page = lazy(() => import('./NewsSoftwareAnnual2021Page'));
@@ -15,6 +18,9 @@ const NewsPmiRep2021Page = lazy(() => import('./NewsPmiRep2021Page'));
 
 /** 富内容新闻页映射：slug -> 专用组件 */
 const RICH_NEWS_PAGES: Record<string, React.LazyExoticComponent<React.ComponentType>> = {
+  'pmi-conference-2025': NewsPmiConference2025Page,
+  'pmi-conference-2024': NewsPmiConference2024Page,
+  'ciie-2024': NewsCiie2024Page,
   'software-conference-2024': NewsSoftwareConference2024Page,
   'pmi-conference-2023': NewsPmiConference2023Page,
   'pmi-salon-2023': NewsPmiSalon2023Page,

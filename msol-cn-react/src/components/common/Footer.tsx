@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { assetUrl } from '../../utils/asset';
-import { NAV_ITEMS, CONTACT_LINK } from '../../data/nav';
+import { NAV_ITEMS } from '../../data/nav';
 
 const SOCIAL_LINKS = [
   { label: '微信', icon: '/icons/icon_wechat.png', qr: '/img/qr_wechat.jpg', tall: false },
@@ -10,9 +10,8 @@ const SOCIAL_LINKS = [
 
 /** 底部导航列：特长 / 业务介绍 / 公司信息 / 新闻 / 联系我们，还原原站 l-footer-nav 五栏结构 */
 function FooterNavColumns() {
-  const columns: { label: string; to: string; children?: { label: string; to: string }[] }[] = [
+  const columns: { label: string; to: string; children?: { label: string; to: string; external?: boolean }[] }[] = [
     ...NAV_ITEMS.filter((item) => item.to !== '/'),
-    CONTACT_LINK,
   ];
 
   return (
@@ -24,11 +23,22 @@ function FooterNavColumns() {
           </Link>
           {'children' in item && item.children && (
             <ul className="mt-3 space-y-2">
-              {item.children.map((child: { label: string; to: string }) => (
+              {item.children.map((child: { label: string; to: string; external?: boolean }) => (
                 <li key={child.to}>
-                  <Link to={child.to} className="text-sm text-ink/70 hover:text-primary">
-                    {child.label}
-                  </Link>
+                  {child.to.startsWith('http') ? (
+                    <a
+                      href={child.to}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm text-ink/70 hover:text-primary"
+                    >
+                      {child.label}
+                    </a>
+                  ) : (
+                    <Link to={child.to} className="text-sm text-ink/70 hover:text-primary">
+                      {child.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -42,11 +52,11 @@ function FooterNavColumns() {
 /** 社交账号图标组，鼠标悬停/移动端点击显示对应二维码 */
 function SocialIcons() {
   return (
-    <div className="flex items-center gap-3">
+    <>
       {SOCIAL_LINKS.map((s) => (
         <div key={s.label} className="group relative">
           <span
-            className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg"
+            className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg"
             aria-label={s.label}
           >
             <img src={assetUrl(s.icon)} alt={s.label} className="h-full w-full object-cover" />
@@ -64,7 +74,7 @@ function SocialIcons() {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }
 
@@ -76,19 +86,38 @@ export function Footer() {
         <FooterNavColumns />
 
         <div className="mt-10 flex flex-col gap-6 border-t border-line pt-8 lg:flex-row lg:items-start lg:justify-between">
-          <ul className="space-y-1 text-xs text-ink/80">
-            <li>麦嵩隆管理咨询(上海)有限公司</li>
-            <li>邮编:200040</li>
-            <li>地址:上海市静安区 静安中华大厦2610室</li>
-            <li>电话:400-666-7959</li>
-            <li>邮件地址:info@cn.msols.com</li>
-          </ul>
+          <div className="space-y-4">
+            <ul className="space-y-1 text-xs text-ink/80">
+              <li>麦嵩隆管理咨询(上海)有限公司</li>
+              <li>邮编:200040</li>
+              <li>地址:上海市静安区 静安中华大厦2602室</li>
+              <li>电话:86-21-62300900</li>
+              <li>邮件地址:info@cn.msols.com</li>
+            </ul>
+            {/* 20周年 Banner */}
+            <a
+              href="https://www.msols.com/20th/"
+              target="_blank"
+              rel="noreferrer"
+              className="block hover:opacity-90 transition-opacity mt-4"
+            >
+              <img
+                src={assetUrl('/img/msol_20th_banner.png')}
+                alt="MSOL 20周年"
+                className="w-full max-w-[180px]"
+              />
+            </a>
+          </div>
 
           <div className="flex flex-col items-start gap-4 lg:items-end">
-            <Link to="/">
-              <img src={assetUrl('/icons/logo.svg')} alt="MSOL徽标" className="h-8" />
-            </Link>
-            <SocialIcons />
+            <div className="flex flex-col gap-4">
+              <Link to="/" className="block">
+                <img id="footer-logo" src={assetUrl('/icons/logo.svg')} alt="MSOL徽标" className="h-10" />
+              </Link>
+              <div className="flex items-center justify-between [&>*:first-child]:ml-0 [&>*:last-child]:mr-0">
+                <SocialIcons />
+              </div>
+            </div>
           </div>
         </div>
 

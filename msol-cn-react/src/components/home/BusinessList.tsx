@@ -52,7 +52,7 @@ export function BusinessList() {
               <span className="text-base font-bold text-primary-dark">{item.desc}</span>
             </Link>
 
-            <ul className="mt-6 w-full max-w-[280px] space-y-2">
+            <ul className="mt-6 w-full max-w-[180px] space-y-2">
               {item.links.map((link) => {
                 const isExternal = /^https?:\/\//.test(link.to);
                 const LinkTag = isExternal ? 'a' : Link;

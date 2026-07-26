@@ -6,123 +6,158 @@ import { ContactCta } from '../components/common/ContactCta';
 
 export default function CompanyDataPage() {
   useEffect(() => {
-    document.title = '公司概要 | 公司信息 | Management Solutions （MSOL）';
+    document.title = '组织架构 | 公司信息 | Management Solutions （MSOL）';
   }, []);
 
   return (
     <>
       <PageHero
-        title="公司概要"
-        subtitle="MSOL集团的规模、成立时间、管理层、公司所在地等。"
+        title="组织架构"
+        subtitle="MSOL集团全称、成立日期、管理层人员、企业地址等企业相关营业信息公示。"
         crumbs={[
           { label: '首页', to: '/' },
           { label: '公司信息', to: '/company' },
-          { label: '公司概要' },
+          { label: '组织架构' },
         ]}
       />
 
       <div className="mx-auto max-w-3xl px-6 py-14">
         <InfoTable
           rows={[
-            { label: '公司名称', value: '株式会社Management Solutions（简称：MSOL）' },
-            { label: '设立', value: '2005年7月' },
             {
-              label: '日本',
+              label: '公司名称',
               value: (
-                <ul className="space-y-1">
-                  <li>董事长兼CEO：高桥 信也</li>
-                  <li>董事兼CFO：福岛 润一</li>
-                  <li>董事：后藤 年成</li>
-                </ul>
+                <>
+                  株式会社Management Solutions（简称：MSOL）
+                  <br />
+                  <span className="text-gray-500">英文名：Management Solutions Co., Ltd.</span>
+                </>
               ),
             },
             {
-              label: '中国',
+              label: '成立日期',
               value: (
-                <ul className="space-y-1">
-                  <li>董事长：高桥 信也</li>
-                  <li>董事兼CEO：高桥 辰生</li>
-                  <li>董事：金子 啓</li>
-                </ul>
+                <>
+                  2005年7月（日本总部成立）
+                  <br />
+                  2018年11月（中国上海分公司成立）
+                </>
+              ),
+            },
+            {
+              label: '董事信息（日本）',
+              value: (
+                <table className="text-left">
+                  <tbody>
+                    <tr><td className="pr-4 py-0.5">董事长兼CEO：</td><td>高桥　信也</td></tr>
+                    <tr><td className="pr-4 py-0.5">常务董事兼CFO：</td><td>玉井　邦昌</td></tr>
+                    <tr><td className="pr-4 py-0.5">董事：</td><td>赤羽　具永</td></tr>
+                    <tr><td className="pr-4 py-0.5">董事：</td><td>田矢　彻司</td></tr>
+                    <tr><td className="pr-4 py-0.5">董事（审计委员）：</td><td>渡边　彻</td></tr>
+                    <tr><td className="pr-4 py-0.5">董事（审计委员）：</td><td>木村　稔</td></tr>
+                    <tr><td className="pr-4 py-0.5">董事（审计委员）：</td><td>稻垣　隆一</td></tr>
+                  </tbody>
+                </table>
+              ),
+            },
+            {
+              label: '董事信息（中国）',
+              value: (
+                <table className="text-left">
+                  <tbody>
+                    <tr><td className="pr-4 py-0.5">董事长兼总经理：</td><td>高桥　辰生</td></tr>
+                    <tr><td className="pr-4 py-0.5">董事兼副总经理：</td><td>张　磊</td></tr>
+                    <tr><td className="pr-4 py-0.5">董事：</td><td>内山　铁朗</td></tr>
+                    <tr><td className="pr-4 py-0.5">董事：</td><td>田中　悠策</td></tr>
+                    <tr><td className="pr-4 py-0.5">监事：</td><td>渡边　彻</td></tr>
+                  </tbody>
+                </table>
               ),
             },
             {
               label: '总公司',
               value: (
                 <>
-                  <a
-                    href="https://www.msols.com/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-primary underline"
-                  >
-                    总公司
-                  </a>
+                  邮编：1076229
                   <br />
-                  邮编:1076223
-                  <br />
-                  地址:東京都港区赤坂9-7-1　ミッドタウン・タワー29F
-                  <br />
-                  TEL：<a href="tel:+810354138808" className="text-primary underline">+81-3-5413-8808</a>
+                  地址：东京都港区赤坂 9 丁目 7 番 1 号 中城大厦 29 层
                 </>
               ),
             },
             {
               label: '分公司',
               value: (
-                <>
-                  <a
-                    href="https://www.msols.com/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-primary underline"
-                  >
-                    中部分公司
-                  </a>
-                  <br />
-                  邮编:4500003
-                  <br />
-                  爱知县名古屋市中村区名驿站南1-24-20 名古屋三井大厦新馆7F
-                  <br />
-                  TEL：<a href="tel:0524466271" className="text-primary underline">+81-52-446-6271</a>
-                </>
+                <div className="space-y-4">
+                  <div>
+                    <strong>中部分公司</strong>
+                    <br />
+                    邮编：4506315
+                    <br />
+                    地址：日本爱知县名古屋市名古屋站 1-1-1 名古屋 JP 大厦 15 层
+                    <br />
+                    TEL：<a href="tel:+81528547756" className="text-primary underline">+81-52-854-7756</a>
+                  </div>
+                  <div>
+                    <strong>关西分公司</strong>
+                    <br />
+                    邮编：5300001
+                    <br />
+                    地址：大阪府大阪市北区梅田 3 丁目 2 番 2 号，大阪 JP 大厦 18 层
+                    <br />
+                    TEL：<a href="tel:+81672220266" className="text-primary underline">+81-6-7222-0266</a>
+                  </div>
+                </div>
               ),
             },
             {
-              label: '子公司',
+              label: '集团企业',
               value: (
                 <div className="space-y-4">
                   <div>
-                    <a
-                      href="http://www.msols.cn/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-primary underline"
-                    >
-                      麦嵩隆管理咨询(上海)有限公司
-                    </a>
+                    <strong>麦嵩隆管理咨询(上海)有限公司</strong>
                     <br />
-                    邮编:200040
+                    邮编：200040
                     <br />
-                    上海市静安区静安中华大厦2610室
+                    地址：上海市静安区静安中华大厦2602室
                     <br />
-                    TEL：<a href="tel:400-666-7959" className="text-primary underline">400-666-7959</a>
+                    TEL：<a href="tel:+862162300900" className="text-primary underline">+86-21-6230-0900</a>
                   </div>
                   <div>
                     <a
-                      href="https://www.msol.tw/"
+                      href="https://www.msoldigi.com/"
                       target="_blank"
                       rel="noreferrer"
-                      className="text-primary underline"
+                      className="text-primary underline font-bold"
                     >
-                      元嵩管理顾问股份有限公司
+                      株式会社MSOL Digital
                     </a>
                     <br />
-                    邮编:10477
+                    邮编：1076229
                     <br />
-                    台北市中山區民權東路三段58號7樓之5
+                    地址：东京都港区赤坂 9 丁目 7 番 1 号 中城大厦 29 层
                     <br />
-                    TEL：<a href="tel:+886225000625" className="text-primary underline">+886-2-2500-0625</a>
+                    TEL：<a href="tel:+81367747138" className="text-primary underline">+81-3-6774-7138</a>
+                  </div>
+                  <div>
+                    <a
+                      href="https://www.tetracom.co.jp/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary underline font-bold"
+                    >
+                      株式会社TETRA communication
+                    </a>
+                    <br />
+                    邮编：1076229
+                    <br />
+                    地址：东京都港区赤坂 9 丁目 7 番 1 号 中城大厦 29 层
+                    <br />
+                    TEL：<a href="tel:+81362656663" className="text-primary underline">+81-3-6265-6663</a>
+                  </div>
+                  <div>
+                    <strong>MSOL Inc.（美国）</strong>
+                    <br />
+                    地址：221 River Street. Hoboken, NJ 07030, USA
                   </div>
                 </div>
               ),
@@ -134,7 +169,7 @@ export default function CompanyDataPage() {
                   <li>・PMO项目管理执行支援</li>
                   <li>・PMO体系架构建立及导入</li>
                   <li>・PMO ONLINE服务</li>
-                  <li>・北极星(项目管理工具PROEVER)的销售和运营</li>
+                  <li>・项目管理工具PROEVER的销售和运营</li>
                   <li>・培训・实践指导</li>
                 </ul>
               ),
@@ -142,43 +177,66 @@ export default function CompanyDataPage() {
             {
               label: '加盟团体',
               value: (
-                <>
-                  <a
-                    href="https://www.keidanren.or.jp/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-primary underline"
-                  >
-                    日本経済団体連合会
-                  </a>
-                  {'　'}
-                  <a
-                    href="https://www.pmi-japan.org/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-primary underline"
-                  >
-                    PMI日本支部
-                  </a>
-                </>
+                <a
+                  href="https://juas.or.jp/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-primary underline"
+                >
+                  日本情報システム・ユーザー協会（JUAS）
+                </a>
               ),
             },
-            { label: '资本金', value: '6.2 亿日币' },
-            { label: '交易金融机关', value: '瑞穗银行、三井住友银行、其他' },
-            { label: '主要股东', value: '高桥信也、董事会成员、其他' },
+            { label: '注册资本金', value: '7.13亿日币' },
+            { label: '集团人数', value: '1,642 人(统计时间截止至2026年3月)' },
+            {
+              label: '资质认证',
+              value: (
+                <ul className="space-y-1">
+                  <li>劳务派遣业务（派 13-303234）</li>
+                  <li>隐私保护认证（17004224）　2021 年 11 月</li>
+                  <li>信息安全管理体系　ISO/IEC 27001:2022（IS 785994）　2023 年 10 月</li>
+                  <li>云服务信息安全管理体系　ISO/IEC 27017:2015（CLOUD 785995）　2023 年 10 月</li>
+                </ul>
+              ),
+            },
           ]}
         />
       </div>
 
+      {/* 深入了解 MSOL 区域 */}
       <section className="border-t border-line py-14">
         <div className="mx-auto max-w-5xl px-6">
-          <LinkCardList
-            items={[
-              { to: '/company/company-data', title: '公司概要', desc: 'MSOL集团的规模、成立时间、管理层、公司所在地等。', current: true },
-              { to: '/company/history', title: '发展历程', desc: '为您介绍自2005年以来MSOL集团的发展历程。' },
-              { to: '/company/director', title: '董事信息', desc: '为您介绍公司董事。' },
-            ]}
-          />
+          <p className="text-sm text-gray-500 mb-3">深入了解 MSOL</p>
+          <h2 className="text-xl md:text-2xl font-bold text-primary mb-12">
+            公司工作氛围灵活自由，员工可随时迎接新挑战，拥有充足自主决策权开展工作。
+          </h2>
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
+            <a href="https://www.msols.com/company/health/" target="_blank" rel="noreferrer" className="group block border-b border-line pb-6">
+              <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
+                MSOL的健康经营 <span className="text-yellow-500">›</span>
+              </h3>
+              <p className="text-xs text-gray-500">介绍 MSOL 在健康经营方面开展的各项举措。</p>
+            </a>
+            <a href="https://www.msols.com/company/3zero/" target="_blank" rel="noreferrer" className="group block border-b border-line pb-6">
+              <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
+                三ZERO宣言 <span className="text-yellow-500">›</span>
+              </h3>
+              <p className="text-xs text-gray-500">介绍落地健康经营理念的 "三ZERO" 相关举措。</p>
+            </a>
+            <a href="/company" className="group block border-b border-line pb-6">
+              <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
+                公司简介 <span className="text-yellow-500">›</span>
+              </h3>
+              <p className="text-xs text-gray-500">全面介绍 MSOL 的经营资质信息。如成立日期、企业地址、注册资本等。</p>
+            </a>
+            <a href="/company/history" className="group block border-b border-line pb-6">
+              <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
+                发展历程 <span className="text-yellow-500">›</span>
+              </h3>
+              <p className="text-xs text-gray-500">为您介绍 MSOL 集团自 2005 年成立至今的企业发展历程。</p>
+            </a>
+          </div>
         </div>
       </section>
 
