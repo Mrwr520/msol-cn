@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { PageHero } from '../components/common/PageHero';
 import { InfoTable } from '../components/common/InfoTable';
-import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
 
 export default function CompanyDataPage() {
