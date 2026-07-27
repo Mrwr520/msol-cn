@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { PageHero } from '../components/common/PageHero';
 import { Reveal } from '../components/common/Reveal';
-import { assetUrl } from '../utils/asset';
 
 interface JobPosition {
   title: string;
