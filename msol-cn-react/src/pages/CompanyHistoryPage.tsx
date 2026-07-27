@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { PageHero } from '../components/common/PageHero';
 import { InfoTable } from '../components/common/InfoTable';
-import { LinkCardList } from '../components/common/LinkCardList';
 import { ContactCta } from '../components/common/ContactCta';
 
 const HISTORY = [
@@ -59,15 +58,40 @@ export default function CompanyHistoryPage() {
         <InfoTable rows={HISTORY} />
       </div>
 
-      <section className="border-t border-line py-14">
+      {/* 深入了解 MSOL */}
+      <section className="py-14 md:py-20 border-t border-line">
         <div className="mx-auto max-w-5xl px-6">
-          <LinkCardList
-            items={[
-              { to: '/company/company-data', title: '公司简介', desc: 'MSOL集团全称、成立日期、管理层人员、企业地址等企业相关营业信息公示。' },
-              { to: '/company/history', title: '发展历程', desc: '为您介绍自2005年以来MSOL集团的发展历程。', current: true },
-              { to: '/company/director', title: '董事信息', desc: '为您介绍公司董事。' },
-            ]}
-          />
+          <p className="text-gray-500 text-sm mb-4">深入了解 MSOL</p>
+          <h2 className="text-xl md:text-2xl font-bold text-primary mb-12">
+            公司工作氛围灵活自由，员工可随时迎接新挑战，拥有充足自主决策权开展工作。
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
+            <a href="https://www.msols.com/company/health/" target="_blank" rel="noopener noreferrer" className="group block border-b border-line pb-6">
+              <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
+                MSOL的健康经营 <span className="text-yellow-500">›</span>
+              </h3>
+              <p className="text-xs text-gray-500">介绍 MSOL 在健康经营方面开展的各项举措。</p>
+            </a>
+            <a href="/company/3zero" className="group block border-b border-line pb-6">
+              <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
+                三ZERO宣言 <span className="text-yellow-500">›</span>
+              </h3>
+              <p className="text-xs text-gray-500">介绍落地健康经营理念的"三ZERO"相关举措。</p>
+            </a>
+            <a href="/company/company-data" className="group block border-b border-line pb-6">
+              <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
+                公司简介 <span className="text-yellow-500">›</span>
+              </h3>
+              <p className="text-xs text-gray-500">全面介绍 MSOL 的经营资质信息。如成立日期、企业地址、注册资本等。</p>
+            </a>
+            <a href="/company/history" className="group block border-b border-line pb-6">
+              <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
+                发展历程 <span className="text-yellow-500">›</span>
+              </h3>
+              <p className="text-xs text-gray-500">梳理介绍 MSOL 自 2005 年成立至今的企业发展历程。</p>
+            </a>
+          </div>
         </div>
       </section>
 

@@ -52,17 +52,15 @@ export default function CompanyPage() {
                 </Link>
 
                 {/* 三ZERO宣言 */}
-                <a
-                  href="https://www.msols.com/company/3zero/"
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  to="/company/3zero"
                   className="group block"
                 >
                   <h3 className="text-base font-bold text-primary mb-2 group-hover:underline">
                     三ZERO宣言 <span className="text-yellow-500">›</span>
                   </h3>
                   <p className="text-sm text-gray-500">介绍落地健康经营理念的 "三ZERO" 相关举措。</p>
-                </a>
+                </Link>
 
                 {/* MSOL的健康经营 */}
                 <a

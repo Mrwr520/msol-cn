@@ -29,9 +29,9 @@ export const NAV_ITEMS: NavItem[] = [
     label: '公司信息',
     to: '/company',
     children: [
-      { label: '公司简介', to: '/company' },
-      { label: '组织架构', to: '/company/company-data' },
-      { label: '三ZERO宣言', to: 'https://www.msols.com/company/3zero/', external: true },
+      { label: '公司信息', to: '/company' },
+      { label: '公司简介', to: '/company/company-data' },
+      { label: '三ZERO宣言', to: '/company/3zero' },
       { label: 'MSOL的健康经营', to: 'https://www.msols.com/company/health/', external: true },
       { label: '发展历程', to: '/company/history' },
     ],

@@ -149,17 +149,6 @@ export default function CareersPage() {
         align="center"
       />
 
-      {/* Hero Image */}
-      <Reveal type="fade">
-        <div className="mx-auto max-w-5xl px-4 pt-10">
-          <img
-            src={assetUrl('/img/careers/hero.jpg')}
-            alt="MSOL团队"
-            className="w-full rounded-xl object-cover shadow-lg"
-          />
-        </div>
-      </Reveal>
-
       {/* Intro */}
       <section className="mx-auto max-w-3xl px-4 py-12 text-center">
         <Reveal type="fade">

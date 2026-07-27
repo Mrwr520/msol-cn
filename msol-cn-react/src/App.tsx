@@ -12,6 +12,7 @@ import CompanyPage from './pages/CompanyPage';
 import CompanyDataPage from './pages/CompanyDataPage';
 import CompanyDirectorPage from './pages/CompanyDirectorPage';
 import CompanyHistoryPage from './pages/CompanyHistoryPage';
+import ThreeZeroPage from './pages/ThreeZeroPage';
 import NewsListPage from './pages/NewsListPage';
 import NewsDetailPage from './pages/NewsDetailPage';
 import BooksListPage from './pages/BooksListPage';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/company/company-data" element={<CompanyDataPage />} />
         <Route path="/company/director" element={<CompanyDirectorPage />} />
         <Route path="/company/history" element={<CompanyHistoryPage />} />
+        <Route path="/company/3zero" element={<ThreeZeroPage />} />
         <Route path="/news" element={<NewsListPage />} />
         <Route path="/news/:slug" element={<NewsDetailPage />} />
         <Route path="/books" element={<BooksListPage />} />

@@ -5,18 +5,18 @@ import { ContactCta } from '../components/common/ContactCta';
 
 export default function CompanyDataPage() {
   useEffect(() => {
-    document.title = '组织架构 | 公司信息 | Management Solutions （MSOL）';
+    document.title = '公司简介 | 公司信息 | Management Solutions （MSOL）';
   }, []);
 
   return (
     <>
       <PageHero
-        title="组织架构"
+        title="公司简介"
         subtitle="MSOL集团全称、成立日期、管理层人员、企业地址等企业相关营业信息公示。"
         crumbs={[
           { label: '首页', to: '/' },
           { label: '公司信息', to: '/company' },
-          { label: '组织架构' },
+          { label: '公司简介' },
         ]}
       />
 
@@ -77,9 +77,20 @@ export default function CompanyDataPage() {
               label: '总公司',
               value: (
                 <>
+                  <a
+                    href="https://www.msols.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary underline font-bold"
+                  >
+                    总公司
+                  </a>
+                  <br />
                   邮编：1076229
                   <br />
                   地址：东京都港区赤坂 9 丁目 7 番 1 号 中城大厦 29 层
+                  <br />
+                  TEL：+81-3-5413-8808
                 </>
               ),
             },
@@ -88,22 +99,36 @@ export default function CompanyDataPage() {
               value: (
                 <div className="space-y-4">
                   <div>
-                    <strong>中部分公司</strong>
+                    <a
+                      href="https://www.msols.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary underline font-bold"
+                    >
+                      中部分公司
+                    </a>
                     <br />
                     邮编：4506315
                     <br />
                     地址：日本爱知县名古屋市名古屋站 1-1-1 名古屋 JP 大厦 15 层
                     <br />
-                    TEL：<a href="tel:+81528547756" className="text-primary underline">+81-52-854-7756</a>
+                    TEL：+81-52-854-7756
                   </div>
                   <div>
-                    <strong>关西分公司</strong>
+                    <a
+                      href="https://www.msols.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary underline font-bold"
+                    >
+                      关西分公司
+                    </a>
                     <br />
                     邮编：5300001
                     <br />
                     地址：大阪府大阪市北区梅田 3 丁目 2 番 2 号，大阪 JP 大厦 18 层
                     <br />
-                    TEL：<a href="tel:+81672220266" className="text-primary underline">+81-6-7222-0266</a>
+                    TEL：+81-6-7222-0266
                   </div>
                 </div>
               ),
@@ -119,7 +144,7 @@ export default function CompanyDataPage() {
                     <br />
                     地址：上海市静安区静安中华大厦2602室
                     <br />
-                    TEL：<a href="tel:+862162300900" className="text-primary underline">+86-21-6230-0900</a>
+                    TEL：+86-21-6230-0900
                   </div>
                   <div>
                     <a
@@ -135,7 +160,7 @@ export default function CompanyDataPage() {
                     <br />
                     地址：东京都港区赤坂 9 丁目 7 番 1 号 中城大厦 29 层
                     <br />
-                    TEL：<a href="tel:+81367747138" className="text-primary underline">+81-3-6774-7138</a>
+                    TEL：+81-3-6774-7138
                   </div>
                   <div>
                     <a
@@ -151,7 +176,7 @@ export default function CompanyDataPage() {
                     <br />
                     地址：东京都港区赤坂 9 丁目 7 番 1 号 中城大厦 29 层
                     <br />
-                    TEL：<a href="tel:+81362656663" className="text-primary underline">+81-3-6265-6663</a>
+                    TEL：+81-3-6265-6663
                   </div>
                   <div>
                     <strong>MSOL Inc.（美国）</strong>
@@ -176,18 +201,38 @@ export default function CompanyDataPage() {
             {
               label: '加盟团体',
               value: (
-                <a
-                  href="https://juas.or.jp/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-primary underline"
-                >
-                  日本情報システム・ユーザー協会（JUAS）
-                </a>
+                <>
+                  <a
+                    href="https://www.keidanren.or.jp/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary underline"
+                  >
+                    日本経済団体連合会
+                  </a>
+                  {'　'}
+                  <a
+                    href="https://www.pmi-japan.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary underline"
+                  >
+                    PMI日本支部
+                  </a>
+                  {'　'}
+                  <a
+                    href="https://juas.or.jp/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary underline"
+                  >
+                    日本情報システム・ユーザー協会（JUAS）
+                  </a>
+                </>
               ),
             },
             { label: '注册资本金', value: '7.13亿日币' },
-            { label: '集团人数', value: '1,642 人(统计时间截止至2026年3月)' },
+            { label: '集团人数', value: '1,812人（统计时间截止至2026年7月）' },
             {
               label: '资质认证',
               value: (
@@ -217,13 +262,13 @@ export default function CompanyDataPage() {
               </h3>
               <p className="text-xs text-gray-500">介绍 MSOL 在健康经营方面开展的各项举措。</p>
             </a>
-            <a href="https://www.msols.com/company/3zero/" target="_blank" rel="noreferrer" className="group block border-b border-line pb-6">
+            <a href="/company/3zero" className="group block border-b border-line pb-6">
               <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
                 三ZERO宣言 <span className="text-yellow-500">›</span>
               </h3>
-              <p className="text-xs text-gray-500">介绍落地健康经营理念的 "三ZERO" 相关举措。</p>
+              <p className="text-xs text-gray-500">介绍落地健康经营理念的"三ZERO"相关举措。</p>
             </a>
-            <a href="/company" className="group block border-b border-line pb-6">
+            <a href="/company/company-data" className="group block border-b border-line pb-6">
               <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
                 公司简介 <span className="text-yellow-500">›</span>
               </h3>
@@ -233,7 +278,7 @@ export default function CompanyDataPage() {
               <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
                 发展历程 <span className="text-yellow-500">›</span>
               </h3>
-              <p className="text-xs text-gray-500">为您介绍 MSOL 集团自 2005 年成立至今的企业发展历程。</p>
+              <p className="text-xs text-gray-500">梳理介绍 MSOL 自 2005 年成立至今的企业发展历程。</p>
             </a>
           </div>
         </div>
