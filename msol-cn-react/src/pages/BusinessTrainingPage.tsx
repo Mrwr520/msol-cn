@@ -43,7 +43,7 @@ const SERVICES = [
     bg: '#80AAEF',
     tag: 'PMO 基础与实战培训课程',
     title: '培训',
-    scope: '人才培养 / PMO资格认证 / 线下授课',
+    scope: '人才培养 / 线下授课',
     desc: '我们依托 MSOL 自研的项目管理理论与方法论体系，开设兼具理论学习与实操属性的培训课程，既可帮助学员夯实基础专业能力，也能直接应用于日常各类项目工作当中。',
     href: 'https://service.msols.com/service/training/',
   },
@@ -69,7 +69,7 @@ export default function BusinessTrainingPage() {
       <div className="mx-auto max-w-5xl px-6 py-14">
         <ContentSection title="培训计划">
           <p>
-            我们的培训课程以项目管理的理论・方法论为基础，结合实践应用。通过我们的网上课程和团体研修课，您能够获取PDU积分以维持PMP®等PMI专业资格。作为教育机构，我们经过PMI官方认证，所授课程具备发放PDU（或PMP考试所需的培训证明）的资质。不限时间地点，且价格优惠的网上课程，包含风险管理，逻辑思维，教练技术，范围管理等多款课程供您选择。
+            我们的培训课程以项目管理的理论・方法论为基础，结合实践应用。不限时间地点，且价格优惠的网上课程，包含风险管理，逻辑思维，教练技术，范围管理等多款课程供您选择。
           </p>
           <Reveal type="fade">
             <img
@@ -79,14 +79,6 @@ export default function BusinessTrainingPage() {
             />
           </Reveal>
         </ContentSection>
-
-        <Reveal type="fade" className="flex flex-col items-center gap-4 rounded border border-line p-6 md:flex-row md:items-start">
-          <img src={assetUrl('/img/logo_pmi.png')} alt="项目管理协会徽标" className="h-14 w-auto shrink-0" />
-          <p className="text-xs leading-relaxed text-ink/60">
-            MBOK、PMP是项目管理协会(Project Management Institute,Inc)的注册商标。 PMI Registered Education
-            Provider标志是项目管理协会(Project Management Institute,Inc.)的注册商标。MSOL经PMI批准，作为R.E.P提供培训课程并发行PDU。
-          </p>
-        </Reveal>
       </div>
 
       {/* 服务介绍 */}

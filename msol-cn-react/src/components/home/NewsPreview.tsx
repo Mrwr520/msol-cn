@@ -31,7 +31,7 @@ export function NewsPreview() {
           to="/news"
           className="group inline-flex items-center text-sm font-bold text-primary"
         >
-          查看清单
+          查看更多
           <Arrow />
         </Link>
       </Reveal>

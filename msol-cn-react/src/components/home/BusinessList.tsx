@@ -26,7 +26,7 @@ const BUSINESS_ITEMS = [
     img: '/img/img_approach_03.svg',
     label: 'TRAINING',
     desc: '培训构筑管理未来',
-    links: [{ label: '训练', to: '/business/training' }],
+    links: [{ label: '培训', to: '/business/training' }],
   },
 ];
 
