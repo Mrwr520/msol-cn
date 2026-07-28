@@ -23,6 +23,7 @@ import PrivacyPage from './pages/PrivacyPage';
 import MarketingPage from './pages/MarketingPage';
 import TvcmPage from './pages/TvcmPage';
 import ComingSoonPage from './pages/ComingSoonPage';
+import AdminNewsPage from './pages/AdminNewsPage';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/marketing" element={<MarketingPage />} />
         <Route path="/tvcm" element={<TvcmPage />} />
+        <Route path="/admin" element={<AdminNewsPage />} />
         <Route path="*" element={<ComingSoonPage title="页面未找到" />} />
       </Route>
     </Routes>
