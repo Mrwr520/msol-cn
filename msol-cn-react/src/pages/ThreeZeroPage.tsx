@@ -151,8 +151,12 @@ export default function ThreeZeroPage() {
           </div>
         </section>
 
-        {/* 深入了解 MSOL */}
-        <section className="py-14 md:py-20 border-t border-line relative z-10">
+        {/* 深入了解 MSOL - moved outside contentRef */}
+      </div>
+
+      {/* 分割线以下，0不再显示 */}
+      <div className="relative z-10 bg-white">
+        <section className="py-14 md:py-20 border-t border-line">
           <div className="mx-auto max-w-5xl px-6">
             <p className="text-gray-500 text-sm mb-4">深入了解 MSOL</p>
             <h2 className="text-xl md:text-2xl font-bold text-primary mb-12">

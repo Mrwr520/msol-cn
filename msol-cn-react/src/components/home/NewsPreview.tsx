@@ -5,7 +5,7 @@ import { NEWS_LIST } from '../../data/news';
 
 /** 首页新闻区块：显示最近5条新闻 + 查看清单入口 */
 export function NewsPreview() {
-  const latestNews = NEWS_LIST.slice(0, 5);
+  const latestNews = [...NEWS_LIST].sort((a, b) => a.isoDate.localeCompare(b.isoDate)).slice(0, 5);
 
   return (
     <div className="mx-auto max-w-3xl px-6">
