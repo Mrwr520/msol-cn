@@ -62,7 +62,7 @@ const SERVICES = [
     bg: '#80AAEF',
     tag: 'PMO 基础与实战培训课程',
     title: '培训',
-    scope: '人才培养 / PMO资格认证 / 线下授课',
+    scope: '人才培养 / 线下授课',
     desc: '我们依托 MSOL 自研的项目管理理论与方法论体系，开设兼具理论学习与实操属性的培训课程，既可帮助学员夯实基础专业能力，也能直接应用于日常各类项目工作当中。',
     href: 'https://service.msols.com/service/training/',
   },
