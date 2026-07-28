@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSOL 新闻管理</title>
+  <link href="https://cdn.jsdelivr.net/npm/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f7fa; color: #333; }
+    .header { background: #01396d; color: white; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .header h1 { font-size: 18px; font-weight: 600; }
+    .btn { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all .15s; }
+    .btn-primary { background: #2563eb; color: white; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-success { background: #16a34a; color: white; }
+    .btn-success:hover { background: #15803d; }
+    .btn-danger { background: #dc2626; color: white; }
+    .btn-danger:hover { background: #b91c1c; }
+    .btn-outline { background: white; color: #333; border: 1px solid #d1d5db; }
+    .btn-outline:hover { background: #f9fafb; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    .card { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.1); padding: 24px; margin-bottom: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e7eb; font-size: 14px; }
+    th { font-weight: 600; color: #6b7280; font-size: 12px; text-transform: uppercase; }
+    tr:hover { background: #f9fafb; }
+    .status-badge { padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 500; }
+    .status-published { background: #dcfce7; color: #166534; }
+    .status-draft { background: #fef3c7; color: #92400e; }
+    .actions { display: flex; gap: 8px; }
+    .toolbar { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; }
+    #editor-container { border: 1px solid #d1d5db; border-radius: 6px; overflow: hidden; }
+    #editor-toolbar { border-bottom: 1px solid #d1d5db; }
+    #editor-content { min-height: 400px; }
+    .hero-upload { border: 2px dashed #d1d5db; border-radius: 8px; padding: 20px; text-align: center; cursor: pointer; transition: border-color .15s; }
+    .hero-upload:hover { border-color: #2563eb; }
+    .hero-upload img { max-height: 200px; max-width: 100%; border-radius: 4px; }
+    .preview-frame { border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; background: white; max-width: 800px; margin: 0 auto; }
+    .preview-frame h1 { font-size: 28px; color: #01396d; margin-bottom: 8px; }
+    .preview-frame .meta { color: #6b7280; font-size: 14px; margin-bottom: 24px; }
+    .preview-frame .content { line-height: 1.8; font-size: 16px; }
+    .preview-frame .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+    .tab-bar { display: flex; gap: 0; margin-bottom: 24px; }
+    .tab { padding: 10px 20px; cursor: pointer; border-bottom: 2px solid transparent; font-size: 14px; font-weight: 500; color: #6b7280; }
+    .tab.active { color: #2563eb; border-bottom-color: #2563eb; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>📰 MSOL 新闻管理</h1>
+    <div id="header-actions"></div>
+  </div>
+
+  <div class="container">
+    <!-- 列表视图 -->
+    <div id="view-list">
+      <div class="toolbar">
+        <button class="btn btn-primary" onclick="showEditor()">+ 新建文章</button>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <table>
+          <thead>
+            <tr>
+              <th>标题</th>
+              <th>分类</th>
+              <th>日期</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="article-list"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 编辑视图 -->
+    <div id="view-editor" class="hidden">
+      <div class="toolbar">
+        <button class="btn btn-outline" onclick="showList()">← 返回列表</button>
+        <button class="btn btn-primary" onclick="saveArticle('draft')">保存草稿</button>
+        <button class="btn btn-success" onclick="saveArticle('published')">发布</button>
+        <button class="btn btn-outline" onclick="showPreview()">👁 预览</button>
+      </div>
+
+      <div class="card">
+        <div class="form-row">
+          <div class="form-group">
+            <label>文章标题 *</label>
+            <input id="f-title" placeholder="输入新闻标题" oninput="autoSlug()">
+          </div>
+          <div class="form-group">
+            <label>URL标识 (slug) *</label>
+            <input id="f-slug" placeholder="自动生成，也可手动修改">
+          </div>
+        </div>
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>分类</label>
+            <select id="f-category">
+              <option value="活动资讯">活动资讯</option>
+              <option value="企业动态">企业动态</option>
+              <option value="集团战略">集团战略</option>
+              <option value="产品服务">产品服务</option>
+              <option value="全球布局">全球布局</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>发布日期 *</label>
+            <input id="f-date" type="date">
+          </div>
+          <div class="form-group">
+            <label>封面图片</label>
+            <div class="hero-upload" id="hero-upload" onclick="document.getElementById('hero-input').click()">
+              <span id="hero-placeholder">点击上传封面图片</span>
+              <img id="hero-preview" style="display:none;">
+              <input type="file" id="hero-input" accept="image/*" style="display:none;" onchange="uploadHero(this)">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>摘要</label>
+          <textarea id="f-summary" rows="2" placeholder="简短描述，用于列表展示"></textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:10px;">正文内容</label>
+        <div id="editor-container">
+          <div id="editor-toolbar"></div>
+          <div id="editor-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 预览视图 -->
+    <div id="view-preview" class="hidden">
+      <div class="toolbar">
+        <button class="btn btn-outline" onclick="hidePreview()">← 返回编辑</button>
+      </div>
+      <div class="preview-frame">
+        <h1 id="preview-title"></h1>
+        <div class="meta" id="preview-meta"></div>
+        <div class="content" id="preview-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@wangeditor/editor@latest/dist/index.js"></script>
+  <script>
+    const API = '';
+    let editor = null;
+    let editingId = null;
+
+    // 初始化编辑器
+    function initEditor() {
+      if (editor) return;
+      const { createEditor, createToolbar } = window.wangEditor;
+      editor = createEditor({
+        selector: '#editor-content',
+        config: {
+          placeholder: '请输入正文内容...',
+          MENU_CONF: {
+            uploadImage: {
+              async customUpload(file, insertFn) {
+                const fd = new FormData();
+                fd.append('image', file);
+                const res = await fetch(API + '/api/upload', { method: 'POST', body: fd });
+                const data = await res.json();
+                insertFn(API + data.url, file.name, '');
+              }
+            }
+          }
+        }
+      });
+      createToolbar({
+        editor,
+        selector: '#editor-toolbar',
+        config: {}
+      });
+    }
+
+    // 加载文章列表
+    async function loadArticles() {
+      const res = await fetch(API + '/api/articles');
+      const list = await res.json();
+      const tbody = document.getElementById('article-list');
+      tbody.innerHTML = list.map(a => `
+        <tr>
+          <td><strong>${a.title}</strong></td>
+          <td>${a.category}</td>
+          <td>${a.publish_date}</td>
+          <td><span class="status-badge status-${a.status}">${a.status === 'published' ? '已发布' : '草稿'}</span></td>
+          <td class="actions">
+            <button class="btn btn-outline" onclick="editArticle(${a.id})" style="padding:4px 10px;font-size:12px;">编辑</button>
+            <button class="btn btn-danger" onclick="deleteArticle(${a.id})" style="padding:4px 10px;font-size:12px;">删除</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // 显示列表
+    function showList() {
+      document.getElementById('view-list').classList.remove('hidden');
+      document.getElementById('view-editor').classList.add('hidden');
+      document.getElementById('view-preview').classList.add('hidden');
+      loadArticles();
+    }
+
+    // 显示编辑器
+    function showEditor(data) {
+      document.getElementById('view-list').classList.add('hidden');
+      document.getElementById('view-editor').classList.remove('hidden');
+      document.getElementById('view-preview').classList.add('hidden');
+      initEditor();
+
+      if (data) {
+        editingId = data.id;
+        document.getElementById('f-title').value = data.title || '';
+        document.getElementById('f-slug').value = data.slug || '';
+        document.getElementById('f-category').value = data.category || '活动资讯';
+        document.getElementById('f-date').value = data.publish_date || '';
+        document.getElementById('f-summary').value = data.summary || '';
+        editor.setHtml(data.content || '');
+        if (data.hero_image) {
+          document.getElementById('hero-preview').src = API + data.hero_image;
+          document.getElementById('hero-preview').style.display = 'block';
+          document.getElementById('hero-placeholder').style.display = 'none';
+        }
+      } else {
+        editingId = null;
+        document.getElementById('f-title').value = '';
+        document.getElementById('f-slug').value = '';
+        document.getElementById('f-category').value = '活动资讯';
+        document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+        document.getElementById('f-summary').value = '';
+        editor.setHtml('');
+        document.getElementById('hero-preview').style.display = 'none';
+        document.getElementById('hero-placeholder').style.display = 'block';
+      }
+    }
+
+    // 编辑文章
+    async function editArticle(id) {
+      const res = await fetch(API + `/api/articles/${id}`);
+      const data = await res.json();
+      showEditor(data);
+    }
+
+    // 删除文章
+    async function deleteArticle(id) {
+      if (!confirm('确定要删除这篇文章吗？')) return;
+      await fetch(API + `/api/articles/${id}`, { method: 'DELETE' });
+      loadArticles();
+    }
+
+    // 保存文章
+    async function saveArticle(status) {
+      const body = {
+        title: document.getElementById('f-title').value,
+        slug: document.getElementById('f-slug').value,
+        category: document.getElementById('f-category').value,
+        publish_date: document.getElementById('f-date').value,
+        summary: document.getElementById('f-summary').value,
+        hero_image: document.getElementById('hero-preview').src?.replace(location.origin, '') || '',
+        content: editor.getHtml(),
+        status,
+      };
+
+      if (!body.title || !body.slug || !body.publish_date) {
+        alert('标题、slug、日期为必填项');
+        return;
+      }
+
+      const url = editingId ? API + `/api/articles/${editingId}` : API + '/api/articles';
+      const method = editingId ? 'PUT' : 'POST';
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      const result = await res.json();
+      if (res.ok) {
+        alert(status === 'published' ? '发布成功！' : '保存成功！');
+        showList();
+      } else {
+        alert('保存失败：' + result.error);
+      }
+    }
+
+    // 自动生成 slug
+    function autoSlug() {
+      const title = document.getElementById('f-title').value;
+      if (!editingId) {
+        const slug = title.replace(/[^\w\u4e00-\u9fa5]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').toLowerCase();
+        document.getElementById('f-slug').value = slug || '';
+      }
+    }
+
+    // 上传封面图
+    async function uploadHero(input) {
+      const file = input.files[0];
+      if (!file) return;
+      const fd = new FormData();
+      fd.append('image', file);
+      const res = await fetch(API + '/api/upload', { method: 'POST', body: fd });
+      const data = await res.json();
+      document.getElementById('hero-preview').src = API + data.url;
+      document.getElementById('hero-preview').style.display = 'block';
+      document.getElementById('hero-placeholder').style.display = 'none';
+    }
+
+    // 预览
+    function showPreview() {
+      document.getElementById('view-editor').classList.add('hidden');
+      document.getElementById('view-preview').classList.remove('hidden');
+      document.getElementById('preview-title').textContent = document.getElementById('f-title').value;
+      document.getElementById('preview-meta').textContent = `${document.getElementById('f-category').value} · ${document.getElementById('f-date').value}`;
+      document.getElementById('preview-content').innerHTML = editor.getHtml();
+    }
+    function hidePreview() {
+      document.getElementById('view-preview').classList.add('hidden');
+      document.getElementById('view-editor').classList.remove('hidden');
+    }
+
+    // 初始化
+    loadArticles();
+  </script>
+</body>
+</html>
