@@ -30,17 +30,7 @@ export default function ContactPage() {
         <Reveal type="fade" delay={2} className="mt-10 space-y-2 text-sm text-ink/80">
           <p className="font-bold text-ink">麦嵩隆管理咨询(上海)有限公司</p>
           <p>邮编:200040</p>
-          <p>
-            地址:上海市静安区 静安中华大厦2602室{' '}
-            <a
-              href="https://j.map.baidu.com/ab/wq4"
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary underline"
-            >
-              地图
-            </a>
-          </p>
+          <p>地址:上海市静安区 静安中华大厦2602室</p>
           <p>电话:86-21-62300900</p>
           <p>
             邮件地址:{' '}
