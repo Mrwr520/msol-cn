@@ -164,7 +164,6 @@ export default function CompanyDataPage() {
                     TEL：+81-3-6774-7138
                   </div>
                   <div>
-                  <div>
                     <strong>MSOL越南事务所</strong>
                     <br />
                     地址：Room 201, 17th Floor, VIT Tower, 519 Kim Ma Street, Giang Vo Ward, Hanoi City, Vietnam
