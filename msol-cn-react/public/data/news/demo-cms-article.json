@@ -1,0 +1,71 @@
+{
+  "slug": "demo-cms-article",
+  "title": "CMS演示：动态内容块新闻文章",
+  "date": "2025.01.15",
+  "isoDate": "2025-01-15",
+  "category": "系统演示",
+  "heroImage": "/images/news/software-annual-2021/img_00.png",
+  "blocks": [
+    {
+      "type": "highlight-card",
+      "text": "这是一篇由 CMS 数据驱动的新闻文章<br/>内容块可自由组合"
+    },
+    {
+      "type": "section-title",
+      "text": "章节标题示例"
+    },
+    {
+      "type": "paragraph",
+      "text": "这是一个普通段落。后续接入 Strapi 后，编辑者可以在后台管理界面中自由添加各种内容块，包括段落、图片、标题、高亮卡片等，无需修改代码即可发布新闻。"
+    },
+    {
+      "type": "captioned-image",
+      "src": "/images/news/software-annual-2021/img_04.png",
+      "alt": "示例图片",
+      "caption": "这是一张带说明文字的图片，编辑者可以在后台上传图片并添加说明"
+    },
+    {
+      "type": "paragraph",
+      "text": "段落之间可以穿插各种内容块。支持的块类型包括：段落、标题、章节装饰标题、普通图片、带说明图片、高亮卡片、引用、分区等。"
+    },
+    {
+      "type": "section",
+      "background": "gray",
+      "blocks": [
+        {
+          "type": "section-title",
+          "text": "灰色背景分区"
+        },
+        {
+          "type": "paragraph",
+          "text": "这个区域有灰色背景，适合用于强调某个主题或章节。内部可以嵌套其他内容块。"
+        },
+        {
+          "type": "image",
+          "src": "/images/news/software-annual-2021/img_01.png",
+          "alt": "分区内的图片"
+        },
+        {
+          "type": "paragraph",
+          "text": "分区可以包含多个段落和图片，形成完整的内容章节。"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "管理是一种实践，其本质不在于知，而在于行。",
+      "author": "彼得·德鲁克"
+    },
+    {
+      "type": "image",
+      "src": "/images/news/software-annual-2021/img_12.gif",
+      "alt": "",
+      "fullBleed": true
+    },
+    {
+      "type": "source",
+      "label": "本文为CMS系统演示内容",
+      "url": "https://github.com/Mrwr520/msol-cn"
+    }
+  ]
+}

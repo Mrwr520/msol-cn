@@ -18,6 +18,15 @@ export type NewsItem = {
  */
 export const NEWS_LIST: NewsItem[] = [
   {
+    slug: 'demo-cms-article',
+    date: '2025.01.15',
+    isoDate: '2025-01-15',
+    category: '系统演示',
+    title: 'CMS演示：动态内容块新闻文章',
+    summary: '这是一篇由 CMS 数据驱动的新闻文章，内容块可自由组合，后续接入 Strapi 后编辑者可在后台管理界面直接发布。',
+    body: [],
+  },
+  {
     slug: 'pmi-conference-2025',
     date: '2025.11.13',
     isoDate: '2025-11-13',

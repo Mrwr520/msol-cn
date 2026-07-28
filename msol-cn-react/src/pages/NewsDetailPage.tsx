@@ -5,6 +5,7 @@ import { Arrow } from '../components/common/Arrow';
 import { ContactCta } from '../components/common/ContactCta';
 import { NEWS_LIST } from '../data/news';
 import { assetUrl } from '../utils/asset';
+import { CmsNewsPage } from '../components/news/CmsNewsPage';
 
 const NewsSoftwareConference2024Page = lazy(() => import('./NewsSoftwareConference2024Page'));
 const NewsPmiConference2024Page = lazy(() => import('./NewsPmiConference2024Page'));
@@ -29,9 +30,17 @@ const RICH_NEWS_PAGES: Record<string, React.LazyExoticComponent<React.ComponentT
   'pmi-rep-2021': NewsPmiRep2021Page,
 };
 
+/** 通过 CMS JSON 数据渲染的新闻 slug 列表 */
+const CMS_NEWS_SLUGS = new Set(['demo-cms-article']);
+
 export default function NewsDetailPage() {
   const { slug } = useParams();
   const news = NEWS_LIST.find((item) => item.slug === slug);
+
+  // CMS 驱动的新闻优先
+  if (slug && CMS_NEWS_SLUGS.has(slug)) {
+    return <CmsNewsPage slug={slug} />;
+  }
 
   // 如果有专用富内容页，直接渲染
   const RichPage = slug ? RICH_NEWS_PAGES[slug] : undefined;
