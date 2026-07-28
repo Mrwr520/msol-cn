@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { PageHero } from '../components/common/PageHero';
 import { InfoTable } from '../components/common/InfoTable';
 import { ContactCta } from '../components/common/ContactCta';
@@ -73,24 +74,24 @@ export default function CompanyHistoryPage() {
               </h3>
               <p className="text-xs text-gray-500">介绍 MSOL 在健康经营方面开展的各项举措。</p>
             </a>
-            <a href="/company/3zero" className="group block border-b border-line pb-6">
+            <Link to="/company/3zero" className="group block border-b border-line pb-6">
               <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
                 三ZERO宣言 <span className="text-yellow-500">›</span>
               </h3>
               <p className="text-xs text-gray-500">介绍落地健康经营理念的"三ZERO"相关举措。</p>
-            </a>
-            <a href="/company/company-data" className="group block border-b border-line pb-6">
+            </Link>
+            <Link to="/company/company-data" className="group block border-b border-line pb-6">
               <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
                 公司简介 <span className="text-yellow-500">›</span>
               </h3>
               <p className="text-xs text-gray-500">全面介绍 MSOL 的经营资质信息。如成立日期、企业地址、注册资本等。</p>
-            </a>
-            <a href="/company/history" className="group block border-b border-line pb-6">
+            </Link>
+            <Link to="/company/history" className="group block border-b border-line pb-6">
               <h3 className="text-primary text-sm font-normal mb-2 group-hover:underline">
                 发展历程 <span className="text-yellow-500">›</span>
               </h3>
               <p className="text-xs text-gray-500">梳理介绍 MSOL 自 2005 年成立至今的企业发展历程。</p>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
