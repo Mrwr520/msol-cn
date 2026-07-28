@@ -164,20 +164,10 @@ export default function CompanyDataPage() {
                     TEL：+81-3-6774-7138
                   </div>
                   <div>
-                    <a
-                      href="https://www.tetracom.co.jp/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-primary underline font-bold"
-                    >
-                      株式会社TETRA communication
-                    </a>
+                  <div>
+                    <strong>MSOL越南事务所</strong>
                     <br />
-                    邮编：1076229
-                    <br />
-                    地址：东京都港区赤坂 9 丁目 7 番 1 号 中城大厦 29 层
-                    <br />
-                    TEL：+81-3-6265-6663
+                    地址：Room 201, 17th Floor, VIT Tower, 519 Kim Ma Street, Giang Vo Ward, Hanoi City, Vietnam
                   </div>
                   <div>
                     <strong>MSOL Inc.（美国）</strong>
